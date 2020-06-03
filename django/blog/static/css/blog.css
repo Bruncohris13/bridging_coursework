@@ -1,4 +1,4 @@
-.page-header {
+/* .page-header {
     background-color: #310BA4;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
@@ -15,7 +15,6 @@
 }
 
 .content {
-    /* border: 1px solid red; */
     align-items: center;
     text-align: center;
     margin: 0 auto;
@@ -54,7 +53,6 @@ h4 {
 }
 
 .post {
-    /* border: 1px solid red; */
     margin: 0 auto;
     margin-bottom: 40px;
     display: inline-block;
@@ -72,7 +70,6 @@ h4 {
 }
 
 p.post-text {
-    /* color: red; */
     white-space: pre-line;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
     padding: 3px;
@@ -83,5 +80,81 @@ p.post-text {
     border-radius: 5px;
     margin-bottom: 20px;
     text-align: left;
-    /* display: inline-block; */
+} */
+
+.navbar {
+    border-radius: 0px;
+}
+
+.inner-container {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.post {
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+    border-radius: 5px;
+    padding: 3px;
+    margin-bottom: 20px;
+}
+
+.post-text {
+    font-size: 16px;
+    max-height: 180px;
+    overflow: hidden;
+}
+
+.date {
+    color: #828282;
+    text-align: left;
+    font-size: 12px;
+}
+
+.post h2 a,
+.post h2 {
+    font-size: 28px;
+    color: black;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+.nav-link {
+    font-size: 24px;
+}
+
+.navbar-brand {
+    font-size: 45px;
+}
+
+.navbar-nav a {
+    padding: 0;
+    margin: 0;
+    vertical-align: bottom;
+}
+
+.post-text-detailed {
+    font-size: 16px;
+    overflow: hidden;
+}
+
+.submit-text {
+    font-size: 14px;
+}
+
+.form-control {
+    font-size: 14px;
+}
+
+.form-body {
+    max-height: 110px;
+}
+
+.comment-title {
+    font-size: 16px;
+}
+
+.comment-text {
+    font-size: 14px;
 }

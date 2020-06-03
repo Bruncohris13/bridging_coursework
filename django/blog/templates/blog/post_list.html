@@ -5,7 +5,12 @@
     {% for post in posts %}
             <div class="post">
                 <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-                <p class="post-text">{{ post.text|linebreaksbr }}</p>
+                <p class="post-text">
+                    {{ post.text|slice:":400"}}
+                    {% if post.text|length > 400 %}
+                    ...
+                    {% endif %}
+                </p>
                 <div class="date">
                     {{ post.published_date }}
                 </div>
