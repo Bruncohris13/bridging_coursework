@@ -25,13 +25,6 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav display-4 ml-auto">
-                <a class="nav-item nav-link" href="/">Home</a>
-                <a class="nav-item nav-link active" href="/blog">Blog</a>
-            </div>
-        </div>
-
         {% if user.is_authenticated %}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item  justify-content-end">
@@ -39,6 +32,14 @@
                 </li>
             </ul>
         {% endif %}  
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav display-4 ml-auto">
+                <a class="nav-item nav-link" href="/">Home</a>
+                <a class="nav-item nav-link active" href="/blog">Blog</a>
+            </div>
+        </div>
+        
     </nav>
     <div class="container">
         <div class="inner-container">
