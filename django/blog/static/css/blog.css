@@ -25,7 +25,8 @@
 }
 
 .post h2 a,
-.post h2 {
+.post h2,
+h2 {
     font-size: 28px;
     color: black;
 }
@@ -57,7 +58,8 @@ h3 {
     font-size: 14px;
 }
 
-.form-control {
+.form-control,
+.post-form {
     font-size: 14px;
 }
 
