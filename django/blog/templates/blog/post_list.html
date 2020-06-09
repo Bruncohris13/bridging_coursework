@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block navbar%}
+    <a class="nav-item nav-link" href="/">Home</a>
+    <a class="nav-item nav-link active" href="/blog">Blog</a>
+{% endblock %}
+
 {% block content %}
     {% for post in posts %}
             <div class="post">
