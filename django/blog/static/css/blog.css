@@ -1,0 +1,49 @@
+.post {
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+    border-radius: 5px;
+    padding: 3px;
+    margin-bottom: 20px;
+}
+
+.post-text {
+    font-size: 16px;
+}
+
+.date {
+    color: #828282;
+    text-align: left;
+    font-size: 12px;
+}
+
+.post h2 a,
+.post h2,
+h2 {
+    font-size: 28px;
+    color: black;
+}
+
+.post-text-detailed {
+    font-size: 16px;
+    overflow: hidden;
+}
+
+.submit-text {
+    font-size: 14px;
+}
+
+.form-control,
+.post-form {
+    font-size: 14px;
+}
+
+.form-body {
+    max-height: 110px;
+}
+
+.comment-title {
+    font-size: 16px;
+}
+
+.comment-text {
+    font-size: 14px;
+}
