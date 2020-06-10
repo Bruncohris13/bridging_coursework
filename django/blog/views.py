@@ -6,7 +6,7 @@ from .forms import PostForm, CommentForm
 # Create your views here.
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    return render(request, 'post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -29,7 +29,7 @@ def post_detail(request, pk):
         "form": form
     }
 
-    return render(request, 'blog/post_detail.html', context)
+    return render(request, 'post_detail.html', context)
 
 def comment_delete(request, pk, cm):
     if request.method == 'GET':
@@ -48,7 +48,7 @@ def post_new(request):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'post_edit.html', {'form': form})
 
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -56,10 +56,9 @@ def post_edit(request, pk):
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
-            #post.author = request.user
             post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'post_edit.html', {'form': form})

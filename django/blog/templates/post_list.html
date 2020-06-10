@@ -1,14 +1,5 @@
-{% extends 'base.html' %}
+{% extends 'blog_base.html' %}
 {% load static %}
-
-{% block title %}
-    <title>Christos Efstathiou's Blog</title>
-{% endblock %}
-
-{% block navbar%}
-    <a class="nav-item nav-link" href="/">Home</a>
-    <a class="nav-item nav-link active" href="/blog">Blog</a>
-{% endblock %}
 
 {% block content %}
     {% for post in posts %}
