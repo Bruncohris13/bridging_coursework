@@ -3,7 +3,7 @@
 
 {% block content %}
     {% for post in posts %}
-            <div class="post">
+            <div onclick="location.href='{% url 'post_detail' pk=post.pk %}'" class="post">
                 <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
                 <p class="post-text">
                     {{ post.text|slice:":400"}}
