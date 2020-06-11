@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+class Bio(models.Model):
+    text = models.TextField()
+    image = models.ImageField(upload_to='cv/img')
