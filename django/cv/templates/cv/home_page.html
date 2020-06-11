@@ -5,13 +5,19 @@
     <link rel="stylesheet" href="{% static 'cv/css/cv.css' %}"> 
 {% endblock %}
 
-{% block navbar%}
+{% block navbar %}
     <a class="nav-item nav-link active" href="/">Home</a>
     <a class="nav-item nav-link" href="/blog">Blog</a>
 {% endblock %}
 
-{% block content %}
-    <div style="background-image: url({% static 'cv/img/background.jpg' %});" class=bio-background>
-        <p>Hello</p>
+{% block bio %}
+    <div style="background-image: url({% static 'cv/img/background.jpg' %});" class="bio-background">
+        <div class="bio-box">
+            
+        </div>
     </div>
+{% endblock %}
+
+{% block content %}
+    <p>Hello</p>
 {% endblock %}
