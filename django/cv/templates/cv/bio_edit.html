@@ -10,14 +10,10 @@
     <a class="nav-item nav-link" href="/blog">Blog</a>
 {% endblock %}
 
-{% block bio %}
-    <div style="background-image: url({% static 'cv/img/background.jpg' %});" class="bio-background">
-        <div class="bio-box">
-            
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
-    <p>Hello</p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
 {% endblock %}
