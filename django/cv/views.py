@@ -4,13 +4,15 @@ from .models import Bio
 
 # Create your views here.
 def bio_edit(request):
+    bio = Bio.objects.first()
     if request.method == 'POST':
-        form = BioForm(request.POST, request.FILES)
+        form = BioForm(request.POST, request.FILES, instance=bio)
         if form.is_valid():
-            form.save()
+            bio = form.save(commit=False)
+            bio.save()
             return redirect('home_page')
     else:
-        form = BioForm()
+        form = BioForm(instance=bio)
     return render(request, 'cv/bio_edit.html', {
         'form': form
     })

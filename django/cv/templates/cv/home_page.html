@@ -13,7 +13,11 @@
 {% block bio %}
     <div style="background-image: url({% static 'cv/img/background.jpg' %});" class="bio-background">
         <div class="bio-box">
-            
+            <img class="profile-pic" src="{{ bio.first.image.url }}">
+            <p class="bio-text">{{ bio.first.text }}</p>
+            {% if user.is_authenticated %}
+                <a class="btn btn-default" href="{% url 'bio_edit' %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
