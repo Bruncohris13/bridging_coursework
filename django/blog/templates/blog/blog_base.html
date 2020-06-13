@@ -10,6 +10,9 @@
 {% endblock %}
 
 {% block navbar%}
+    {% if user.is_authenticated %}
+        <a class="nav-item nav-link text-light display-4" href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>          
+    {% endif %}
     <a class="nav-item nav-link" href="/">Home</a>
     <a class="nav-item nav-link active" href="/blog">Blog</a>
 {% endblock %}
