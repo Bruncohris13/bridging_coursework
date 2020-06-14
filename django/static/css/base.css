@@ -28,3 +28,18 @@ h3 {
 .navbar {
     margin-bottom: 0px;
 }
+
+.submit-text {
+    font-size: 14px;
+}
+
+.form-control,
+.post-form,
+.bio-form {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.form-body {
+    max-height: 110px;
+}
