@@ -27,9 +27,7 @@
 
         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
             <span class="navbar-toggler-icon"></span>
-        </button>
-
-          
+        </button>  
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav display-4 ml-auto">
@@ -39,12 +37,21 @@
         </div>
         
     </nav>
+
     {% block bio %}
     {% endblock %}
-    <div class="container">
-        <div class="inner-container">
-            {% block content %}
-            {% endblock %}
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="middle-container col-sm-8">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div class="scrollspy-container col-sm-2">
+                {% block scrollspy %}
+                {% endblock %}
+            </div>
         </div>
     </div>
 

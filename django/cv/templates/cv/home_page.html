@@ -12,7 +12,7 @@
 
 {% block bio %}
     <div style="background-image: url({% static 'cv/img/background.jpg' %});" class="bio-background">
-        <div class="bio-box">
+        <div class="bio-box" id="bio">
             <img class="profile-pic" src="{{ bio.first.image.url }}">
             <div class="bio-text-container">
                 <p class="bio-text">{{ bio.first.text }}</p>
@@ -21,6 +21,21 @@
                 <a class="btn btn-default" href="{% url 'bio_edit' %}"><span class="glyphicon glyphicon-pencil"></span></a>
             {% endif %}
         </div>
+    </div>
+{% endblock %}
+
+{% block scrollspy %}
+    <div data-spy="scroll" data-target="scrollspy" data-offset="50" class="div-scrollspy">
+        <nav class="navbar bg-light display-4 justify-content-center" id="scrollspy">
+            <a class="navbar-item nav-link" href="#bio">Biography</a>
+            <a class="navbar-item nav-link" href="#education">Education</a>
+            <a class="navbar-item nav-link" href="#achievements">Achievements</a>
+            <a class="navbar-item nav-link" href="#qualifications">Qualifications</a>
+            <a class="navbar-item nav-link" href="#skills">Skills</a>
+            <a class="navbar-item nav-link" href="#interests">Interests</a>
+            <a class="navbar-item nav-link" href="#projects">Projects</a>
+            <a class="navbar-item nav-link" href="#contact">Contact</a>
+        </nav>
     </div>
 {% endblock %}
 
