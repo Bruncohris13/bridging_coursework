@@ -45,3 +45,5 @@
 .div-scrollspy {
     position: relative;
 }
+
+#scrollspy a {}
