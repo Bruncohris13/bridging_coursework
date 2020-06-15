@@ -1,8 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import BioForm
-from .models import Bio
+from .forms import *
+from .models import *
 
 # Create your views here.
+def home_page(request):
+    bio = Bio.objects.all()
+    education = EducationPost.objects.all()
+    return render(request, 'cv/home_page.html', {
+        'bio': bio,
+        'education': education
+    })
+
 def bio_edit(request):
     bio = Bio.objects.first()
     if request.method == 'POST':
@@ -17,8 +25,5 @@ def bio_edit(request):
         'form': form
     })
 
-def home_page(request):
-    bio = Bio.objects.all()
-    return render(request, 'cv/home_page.html', {
-        'bio': bio
-    })
+def cv_post_edit(request):
+    None
