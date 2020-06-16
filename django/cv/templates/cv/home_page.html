@@ -3,7 +3,7 @@
 
 {% block bio %}
     <div style="background-image: url({% static 'cv/img/background.jpg' %});" class="bio-background">
-        <div class="bio-box" id="bio">
+        <div class="bio-box">
             <img class="profile-pic" src="{{ bio.first.image.url }}">
             <div class="bio-text-container">
                 <p class="bio-text">{{ bio.first.text }}</p>
@@ -16,7 +16,7 @@
 {% endblock %}
 
 {% block scrollspy %}
-    <div data-spy="scroll" data-target="scrollspy" data-offset="50" class="div-scrollspy" style="height: 100%">
+    <div data-spy="scroll" data-target="scrollspy" data-offset="50" class="div-scrollspy d-none d-sm-block" style="height: 100%">
         <nav class="navbar display-4 sticky-top" id="scrollspy">
             <a class="navbar-item nav-link" href="#bio">Biography</a>
             <a class="navbar-item nav-link" href="#education">Education</a>
