@@ -44,9 +44,18 @@
 
 .div-scrollspy {
     position: relative;
+    top: 20%;
 }
 
-#scrollspy a {}
+.div-scrollspy a {
+    display: block;
+}
+
+#scrollspy {
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+}
 
 .education-post {
     margin-left: 5%;
