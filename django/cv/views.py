@@ -21,7 +21,7 @@ def bio_edit(request):
             return redirect('home_page')
     else:
         form = BioForm(instance=bio)
-    return render(request, 'cv/bio_edit.html', {
+    return render(request, 'cv/cv_post_edit.html', {
         'form': form
     })
 
