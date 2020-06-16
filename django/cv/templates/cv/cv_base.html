@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block my_css %}
+    <link rel="stylesheet" href="{% static 'cv/css/cv.css' %}"> 
+{% endblock %}
+
+{% block navbar %}
+    <a class="nav-item nav-link active" href="/">Home</a>
+    <a class="nav-item nav-link" href="/blog">Blog</a>
+{% endblock %}

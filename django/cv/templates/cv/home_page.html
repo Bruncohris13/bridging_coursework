@@ -1,14 +1,5 @@
-{% extends 'base.html' %}
+{% extends 'cv/cv_base.html' %}
 {% load static %}
-
-{% block my_css %}
-    <link rel="stylesheet" href="{% static 'cv/css/cv.css' %}"> 
-{% endblock %}
-
-{% block navbar %}
-    <a class="nav-item nav-link active" href="/">Home</a>
-    <a class="nav-item nav-link" href="/blog">Blog</a>
-{% endblock %}
 
 {% block bio %}
     <div style="background-image: url({% static 'cv/img/background.jpg' %});" class="bio-background">
