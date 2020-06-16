@@ -13,9 +13,10 @@
     margin: 0;
     position: relative;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    transform: translateY(-50%);
+    width: 100%;
 }
 
 .profile-pic {
@@ -23,12 +24,11 @@
     width: 100px;
     border-radius: 50px;
     float: left;
-    margin: 10px;
 }
 
 .bio-text {
     display: table-cell;
-    padding: 5px 10px;
+    padding: 1% 2%;
     font-size: 18px;
 }
 
