@@ -26,15 +26,32 @@ def bio_edit(request):
     })
 
 def cv_post_edit(request, category, pk):
-    None
-
-def cv_post_new(request, category):
+    form_class = get_category(category)
+    post = get_object_or_404(EducationPost, pk=pk)
     if request.method == "POST":
-        form = EducationPostForm(request.POST)
+        form = form_class(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
             return redirect('home_page')
     else:
-        form = EducationPostForm()
+        form = form_class(instance=post)
     return render(request, 'cv/cv_post_edit.html', {'form': form})
+
+def cv_post_new(request, category):
+    form_class = get_category(category)
+    if request.method == "POST":
+        form = form_class(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('home_page')
+    else:
+        form = form_class()
+    return render(request, 'cv/cv_post_edit.html', {'form': form})
+
+def get_category(category):
+    switcher = {
+        'Education' : EducationPostForm
+    }
+    return switcher.get(category, "Invalid category")
