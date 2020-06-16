@@ -47,3 +47,22 @@
 }
 
 #scrollspy a {}
+
+.education-post {
+    margin-left: 5%;
+}
+
+.cv-post-title {
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.cv-post-sub-title {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(115, 115, 115);
+}
+
+.cv-post-text {
+    font-size: 14px;
+}

@@ -31,7 +31,7 @@
 {% endblock %}
 
 {% block content %}
-    <h1 id="education" class="display-4">Education
+    <h1 id="education" class="display-3">Education
         {% if user.is_authenticated %}
                 <a class="btn btn-default" href="{% url 'cv_post_new' category='Education' %}"><span class="glyphicon glyphicon-plus"></span></a>
         {% endif %}
@@ -40,16 +40,17 @@
             <div class="education-post">
                 <h2 class="cv-post-title">{{ post.title }}</h2>
                 <h3 class="cv-post-sub-title">{{ post.sub_title }}</h3>
-                <p class="cv-post education-post-text">{{ post.text }}</p>
+                <p class="cv-post-text education-post-text">{{ post.text }}</p>
                 {% if user.is_authenticated %}
                     <a class="btn btn-default" href="{% url 'cv_post_edit' category='Education' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
                 {% endif %}
+                <hr>
             </div>
         {% endfor %}
-    <h1 id="achievements" class="display-4">Achievements</h1>
-    <h1 id="qualifications" class="display-4">Qualifications</h1>
-    <h1 id="skills" class="display-4">Skills</h1>
-    <h1 id="interests" class="display-4">Interests</h1>
-    <h1 id="projects" class="display-4">Projects</h1>
-    <h1 id="contact" class="display-4">Contact</h1>
+    <h1 id="achievements" class="display-3">Achievements</h1>
+    <h1 id="qualifications" class="display-3">Qualifications</h1>
+    <h1 id="skills" class="display-3">Skills</h1>
+    <h1 id="interests" class="display-3">Interests</h1>
+    <h1 id="projects" class="display-3">Projects</h1>
+    <h1 id="contact" class="display-3">Contact</h1>
 {% endblock %}
