@@ -51,6 +51,9 @@
                 <p class="cv-post-text">{{ post.text }}</p>
                 {% if user.is_authenticated %}
                     <a class="btn btn-default" href="{% url 'cv_post_edit' category='Education' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="{% url 'cv_post_delete' category='Education' pk=post.pk %}" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </a>
                 {% endif %}
                 <hr>
             </div>
@@ -68,6 +71,9 @@
                 <p class="cv-post-text">{{ post.text }}</p>
                 {% if user.is_authenticated %}
                     <a class="btn btn-default" href="{% url 'cv_post_edit' category='Achievement' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="{% url 'cv_post_delete' category='Achievement' pk=post.pk %}" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </a>
                 {% endif %}
                 <hr>
             </div>

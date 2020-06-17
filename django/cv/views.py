@@ -28,8 +28,8 @@ def bio_edit(request):
     })
 
 def cv_post_edit(request, category, pk):
-    form_class = get_category(category)
-    post = get_object_or_404(EducationPost, pk=pk)
+    form_class = get_form_class(category)
+    post = get_object_or_404(get_post_class(category), pk=pk)
     if request.method == "POST":
         form = form_class(request.POST, instance=post)
         if form.is_valid():
@@ -41,7 +41,7 @@ def cv_post_edit(request, category, pk):
     return render(request, 'cv/cv_post_edit.html', {'form': form})
 
 def cv_post_new(request, category):
-    form_class = get_category(category)
+    form_class = get_form_class(category)
     if request.method == "POST":
         form = form_class(request.POST)
         if form.is_valid():
@@ -52,9 +52,22 @@ def cv_post_new(request, category):
         form = form_class()
     return render(request, 'cv/cv_post_edit.html', {'form': form})
 
-def get_category(category):
+def cv_post_delete(request, category, pk):
+    post = get_object_or_404(get_post_class(category), pk=pk)
+    if request.method == "GET":
+        post.delete()
+    return redirect('home_page')
+
+def get_form_class(category):
     switcher = {
         'Education' : EducationPostForm,
         'Achievement' : AchievementPostForm,
+    }
+    return switcher.get(category, "Invalid category")
+
+def get_post_class(category):
+    switcher = {
+        'Education' : EducationPost,
+        'Achievement' : AchievementPost,
     }
     return switcher.get(category, "Invalid category")
