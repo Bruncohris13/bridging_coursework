@@ -13,3 +13,6 @@ class EducationPost(CVPost):
 
 class AchievementPost(CVPost):
     sub_title = models.CharField(max_length=100)
+
+class QualificationPost(CVPost):
+    pass

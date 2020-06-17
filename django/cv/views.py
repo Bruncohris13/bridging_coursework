@@ -7,10 +7,12 @@ def home_page(request):
     bio = Bio.objects.all()
     education = EducationPost.objects.all()
     achievements = AchievementPost.objects.all()
+    qualifications = QualificationPost.objects.all()
     return render(request, 'cv/home_page.html', {
         'bio': bio,
         'education': education,
         'achievements': achievements,
+        'qualifications': qualifications,
     })
 
 def bio_edit(request):
@@ -62,6 +64,7 @@ def get_form_class(category):
     switcher = {
         'Education' : EducationPostForm,
         'Achievement' : AchievementPostForm,
+        'Qualification' : QualificationPostForm,
     }
     return switcher.get(category, "Invalid category")
 
@@ -69,5 +72,6 @@ def get_post_class(category):
     switcher = {
         'Education' : EducationPost,
         'Achievement' : AchievementPost,
+        'Qualification' : QualificationPost,
     }
     return switcher.get(category, "Invalid category")
