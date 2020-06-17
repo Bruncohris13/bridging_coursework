@@ -7,7 +7,7 @@
     cursor: pointer;
 }
 
-.post:hover {
+.post-hover:hover {
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.30), 0 0 16px rgba(0, 0, 0, 0.40);
 }
 
