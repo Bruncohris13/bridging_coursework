@@ -16,3 +16,9 @@ class EducationPostForm(CVPostForm):
         model = EducationPost
         fields = CVPostForm.Meta.fields + ('sub_title',)
     field_order = ('title', 'sub_title', 'text')
+
+class AchievementPostForm(CVPostForm):
+    class Meta(CVPostForm.Meta):
+        model = AchievementPost
+        fields = CVPostForm.Meta.fields + ('sub_title',)
+    field_order = ('title', 'sub_title', 'text')

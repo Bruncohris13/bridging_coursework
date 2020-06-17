@@ -6,9 +6,11 @@ from .models import *
 def home_page(request):
     bio = Bio.objects.all()
     education = EducationPost.objects.all()
+    achievements = AchievementPost.objects.all()
     return render(request, 'cv/home_page.html', {
         'bio': bio,
-        'education': education
+        'education': education,
+        'achievements': achievements,
     })
 
 def bio_edit(request):
@@ -52,6 +54,7 @@ def cv_post_new(request, category):
 
 def get_category(category):
     switcher = {
-        'Education' : EducationPostForm
+        'Education' : EducationPostForm,
+        'Achievement' : AchievementPostForm,
     }
     return switcher.get(category, "Invalid category")

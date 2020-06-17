@@ -10,3 +10,6 @@ class CVPost(models.Model):
 
 class EducationPost(CVPost):
     sub_title = models.CharField(max_length=100)
+
+class AchievementPost(CVPost):
+    sub_title = models.CharField(max_length=100)

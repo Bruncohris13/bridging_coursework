@@ -55,7 +55,8 @@
     display: block;
 }
 
-.education-post {
+.education-post,
+.achievement-post {
     margin-left: 5%;
 }
 
