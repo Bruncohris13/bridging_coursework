@@ -16,3 +16,6 @@ class AchievementPost(CVPost):
 
 class QualificationPost(CVPost):
     pass
+
+class SkillPost(models.Model):
+    skill = models.CharField(max_length=50)

@@ -26,3 +26,8 @@ class AchievementPostForm(CVPostForm):
 class QualificationPostForm(CVPostForm):
     class Meta(CVPostForm.Meta):
         model = QualificationPost
+
+class SkillPostForm(forms.ModelForm):
+    class Meta:
+        model = SkillPost
+        fields = ('skill',)
