@@ -55,7 +55,8 @@
 
 .cv-post,
 .skills-container,
-.interests-container {
+.interests-container,
+.projects-container {
     margin-left: 5%;
 }
 
@@ -92,3 +93,12 @@
     vertical-align: middle;
     margin: 0;
 }
+
+.project-card {
+    /* margin: 10px 0; */
+}
+
+
+/* .project-card-body {
+    height: 100%;
+} */
