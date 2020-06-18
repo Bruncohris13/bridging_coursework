@@ -1,14 +1,16 @@
 .post {
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.24), 0 1px 8px rgba(0, 0, 0, 0.36);
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
+    border: solid 1px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     padding: 3px;
     margin-bottom: 20px;
     margin-top: 20px;
     cursor: pointer;
+    transition: box-shadow 0.2s ease-in-out;
 }
 
 .post-hover:hover {
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.30), 0 0 16px rgba(0, 0, 0, 0.40);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .post-text {

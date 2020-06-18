@@ -49,8 +49,4 @@ class InterestPostForm(forms.ModelForm):
 class ProjectPostForm(forms.ModelForm):
     class Meta:
         model = ProjectPost
-        fields = ('title', 'text', 'image')
-    
-    # def __init__(self, *args, **kwargs):
-    #     super(ProjectPostForm, self).__init__(*args, **kwargs)
-    #     self.fields['image'].required = False
+        fields = ('title', 'text', 'image', 'url')

@@ -33,3 +33,4 @@ class ProjectPost(models.Model):
     title = models.CharField(max_length=100)
     text = models.TextField()
     image = models.ImageField(upload_to='cv/img/projects')
+    url = models.URLField(max_length=300)
