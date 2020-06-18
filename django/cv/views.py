@@ -6,6 +6,7 @@ from .models import *
 def home_page(request):
     bio = Bio.objects.all()
     education = EducationPost.objects.all()
+    work = WorkPost.objects.all()
     achievements = AchievementPost.objects.all()
     qualifications = QualificationPost.objects.all()
     skills = SkillPost.objects.all()
@@ -14,6 +15,7 @@ def home_page(request):
     return render(request, 'cv/home_page.html', {
         'bio': bio,
         'education': education,
+        'work': work,
         'achievements': achievements,
         'qualifications': qualifications,
         'skills': skills,
@@ -68,6 +70,7 @@ def cv_post_delete(request, category, pk):
 def get_form_class(category):
     switcher = {
         'Education' : EducationPostForm,
+        'Work' : WorkPostForm,
         'Achievement' : AchievementPostForm,
         'Qualification' : QualificationPostForm,
         'Skill' : SkillPostForm,
@@ -78,6 +81,7 @@ def get_form_class(category):
 def get_post_class(category):
     switcher = {
         'Education' : EducationPost,
+        'Work' : WorkPost,
         'Achievement' : AchievementPost,
         'Qualification' : QualificationPost,
         'Skill' : SkillPost,
