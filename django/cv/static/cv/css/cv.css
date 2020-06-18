@@ -56,7 +56,8 @@
 .cv-post,
 .skills-container,
 .interests-container,
-.projects-container {
+.projects-container,
+.contact-container {
     margin-left: 5%;
 }
 
@@ -111,4 +112,34 @@
 .project-card-body {
     padding-bottom: 0;
     margin-bottom: 0;
+}
+
+.contact-container {
+    margin-top: 2%;
+}
+
+.fa {
+    padding: 10px;
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    border-radius: 50%;
+    margin: 5%;
+}
+
+.fa:hover {
+    opacity: 0.9;
+    text-decoration: none;
+}
+
+.fa-linkedin,
+.fa-linkedin:hover {
+    background-color: #0e76a8;
+    color: white;
+}
+
+.fa-envelope,
+.fa-envelope:hover {
+    color: white;
 }

@@ -118,7 +118,7 @@
     </h1>
         <div class="skills-container">
             {% for post in skills %}
-                <div class="skill-post">
+                <div class="skill-post btn btn-rounded">
                     <p class="skill-text">{{ post.skill }}</p>
                     {% if user.is_authenticated %}
                         <a class="btn btn-default" href="{% url 'cv_post_edit' category='Skill' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -169,5 +169,9 @@
         </div>
 
     <h1 id="contact" class="display-3">Contact</h1>
+        <div class="contact-container">
+            <a href="#" class="fa fa-envelope bg-primary"></a>
+            <a href="#" class="fa fa-linkedin"></a>
+        </div>
 
 {% endblock %}
