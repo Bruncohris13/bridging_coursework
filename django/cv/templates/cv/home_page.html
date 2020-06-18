@@ -51,9 +51,7 @@
                 <p class="cv-post-text">{{ post.text|linebreaksbr }}</p>
                 {% if user.is_authenticated %}
                     <a class="btn btn-default" href="{% url 'cv_post_edit' category='Education' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a href="{% url 'cv_post_delete' category='Education' pk=post.pk %}" class="close" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </a>
+                    <a href="{% url 'cv_post_delete' category='Education' pk=post.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
                 {% endif %}
                 <hr>
             </div>
@@ -71,9 +69,7 @@
                 <p class="cv-post-text">{{ post.text|linebreaksbr }}</p>
                 {% if user.is_authenticated %}
                     <a class="btn btn-default" href="{% url 'cv_post_edit' category='Achievement' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a href="{% url 'cv_post_delete' category='Achievement' pk=post.pk %}" class="close" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </a>
+                    <a href="{% url 'cv_post_delete' category='Achievement' pk=post.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
                 {% endif %}
                 <hr>
             </div>
@@ -90,9 +86,7 @@
                 <p class="cv-post-text">{{ post.text|linebreaksbr }}</p>
                 {% if user.is_authenticated %}
                     <a class="btn btn-default" href="{% url 'cv_post_edit' category='Qualification' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a href="{% url 'cv_post_delete' category='Qualification' pk=post.pk %}" class="close" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </a>
+                    <a href="{% url 'cv_post_delete' category='Qualification' pk=post.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
                 {% endif %}
                 <hr>
             </div>
@@ -103,17 +97,17 @@
             <a class="btn btn-default" href="{% url 'cv_post_new' category='Skill' %}"><span class="glyphicon glyphicon-plus"></span></a>
         {% endif %}
     </h1>
-        {% for post in skills %}
-            <div class="skill-post">
-                <p class="skill-text">{{ post.skill }}</p>
-                {% if user.is_authenticated %}
-                    <a class="btn btn-default" href="{% url 'cv_post_edit' category='Skill' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a href="{% url 'cv_post_delete' category='Skill' pk=post.pk %}" class="close" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </a>
-                {% endif %}
-            </div>
-        {% endfor %}
+        <div class="skills-container">
+            {% for post in skills %}
+                <div class="skill-post">
+                    <p class="skill-text">{{ post.skill }}</p>
+                    {% if user.is_authenticated %}
+                        <a class="btn btn-default" href="{% url 'cv_post_edit' category='Skill' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a href="{% url 'cv_post_delete' category='Skill' pk=post.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
 
     <h1 id="interests" class="display-3">Interests</h1>
     <h1 id="projects" class="display-3">Projects</h1>
