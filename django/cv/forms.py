@@ -6,6 +6,7 @@ class BioForm(forms.ModelForm):
         model = Bio
         fields = ('text', 'image')
 
+
 class CVPostForm(forms.ModelForm):
     class Meta:
         model = CVPost
@@ -33,6 +34,7 @@ class QualificationPostForm(CVPostForm):
     class Meta(CVPostForm.Meta):
         model = QualificationPost
 
+
 class SkillPostForm(forms.ModelForm):
     class Meta:
         model = SkillPost
@@ -42,3 +44,13 @@ class InterestPostForm(forms.ModelForm):
     class Meta:
         model = InterestPost
         fields = ('interest',)
+
+
+class ProjectPostForm(forms.ModelForm):
+    class Meta:
+        model = ProjectPost
+        fields = ('title', 'text', 'image')
+    
+    # def __init__(self, *args, **kwargs):
+    #     super(ProjectPostForm, self).__init__(*args, **kwargs)
+    #     self.fields['image'].required = False

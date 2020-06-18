@@ -11,6 +11,7 @@ def home_page(request):
     qualifications = QualificationPost.objects.all()
     skills = SkillPost.objects.all()
     interests = InterestPost.objects.all()
+    projects = ProjectPost.objects.all()
 
     return render(request, 'cv/home_page.html', {
         'bio': bio,
@@ -20,6 +21,7 @@ def home_page(request):
         'qualifications': qualifications,
         'skills': skills,
         'interests': interests,
+        'projects': projects,
     })
 
 def bio_edit(request):
@@ -40,7 +42,7 @@ def cv_post_edit(request, category, pk):
     form_class = get_form_class(category)
     post = get_object_or_404(get_post_class(category), pk=pk)
     if request.method == "POST":
-        form = form_class(request.POST, instance=post)
+        form = form_class(request.POST, request.FILES, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
@@ -52,7 +54,7 @@ def cv_post_edit(request, category, pk):
 def cv_post_new(request, category):
     form_class = get_form_class(category)
     if request.method == "POST":
-        form = form_class(request.POST)
+        form = form_class(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
@@ -75,6 +77,7 @@ def get_form_class(category):
         'Qualification' : QualificationPostForm,
         'Skill' : SkillPostForm,
         'Interest' : InterestPostForm,
+        'Project' : ProjectPostForm,
     }
     return switcher.get(category, "Invalid category")
 
@@ -86,5 +89,6 @@ def get_post_class(category):
         'Qualification' : QualificationPost,
         'Skill' : SkillPost,
         'Interest' : InterestPost,
+        'Project' : ProjectPost,
     }
     return switcher.get(category, "Invalid category")
