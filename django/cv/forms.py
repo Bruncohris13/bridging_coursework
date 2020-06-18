@@ -31,3 +31,8 @@ class SkillPostForm(forms.ModelForm):
     class Meta:
         model = SkillPost
         fields = ('skill',)
+
+class InterestPostForm(forms.ModelForm):
+    class Meta:
+        model = InterestPost
+        fields = ('interest',)

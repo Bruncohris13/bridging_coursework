@@ -54,7 +54,8 @@
 }
 
 .cv-post,
-.skills-container {
+.skills-container,
+.interests-container {
     margin-left: 5%;
 }
 
@@ -70,11 +71,13 @@
 }
 
 .cv-post-text,
-.skill-text {
+.skill-text,
+.interest-text {
     font-size: 14px;
 }
 
-.skill-post {
+.skill-post,
+.interest-post {
     display: inline-block;
     vertical-align: middle;
     padding: 1px 4px;
@@ -84,7 +87,8 @@
     margin: 5px;
 }
 
-.skill-text {
+.skill-text,
+.interest-text {
     vertical-align: middle;
     margin: 0;
 }

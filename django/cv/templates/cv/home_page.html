@@ -109,7 +109,23 @@
             {% endfor %}
         </div>
 
-    <h1 id="interests" class="display-3">Interests</h1>
+    <h1 id="interests" class="display-3">Interests
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'cv_post_new' category='Interest' %}"><span class="glyphicon glyphicon-plus"></span></a>
+        {% endif %}
+    </h1>
+        <div class="interests-container">
+            {% for post in interests %}
+                <div class="interest-post">
+                    <p class="interest-text">{{ post.interest }}</p>
+                    {% if user.is_authenticated %}
+                        <a class="btn btn-default" href="{% url 'cv_post_edit' category='Interest' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a href="{% url 'cv_post_delete' category='Interest' pk=post.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
     <h1 id="projects" class="display-3">Projects</h1>
     <h1 id="contact" class="display-3">Contact</h1>
 {% endblock %}

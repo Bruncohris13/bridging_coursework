@@ -19,3 +19,6 @@ class QualificationPost(CVPost):
 
 class SkillPost(models.Model):
     skill = models.CharField(max_length=50)
+
+class InterestPost(models.Model):
+    interest = models.CharField(max_length=50)
