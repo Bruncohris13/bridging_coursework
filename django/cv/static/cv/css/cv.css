@@ -95,10 +95,11 @@
 }
 
 .project-card {
-    /* margin: 10px 0; */
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
-
-/* .project-card-body {
-    height: 100%;
-} */
+.project-card-body {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
