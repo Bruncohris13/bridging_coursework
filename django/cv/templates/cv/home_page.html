@@ -34,7 +34,7 @@
             <a class="navbar-item nav-link" href="#skills">Skills</a>
             <a class="navbar-item nav-link" href="#interests">Interests</a>
             <a class="navbar-item nav-link" href="#projects">Projects</a>
-            <a class="navbar-item nav-link" href="#contact">Contact</a>
+            <a class="navbar-item nav-link" href="#contact">Contact Information</a>
         </nav>
     </div>
 {% endblock %}
@@ -118,7 +118,7 @@
     </h1>
         <div class="skills-container">
             {% for post in skills %}
-                <div class="skill-post btn btn-rounded">
+                <div class="skill-post">
                     <p class="skill-text">{{ post.skill }}</p>
                     {% if user.is_authenticated %}
                         <a class="btn btn-default" href="{% url 'cv_post_edit' category='Skill' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -168,10 +168,11 @@
             {% endfor %}
         </div>
 
-    <h1 id="contact" class="display-3">Contact</h1>
+    <h1 id="contact" class="display-3">Contact Information</h1>
         <div class="contact-container">
             <a href="#" class="fa fa-envelope bg-primary"></a>
             <a href="#" class="fa fa-linkedin"></a>
+            <a href="#" class="fa fa-github"></a>
         </div>
 
 {% endblock %}
