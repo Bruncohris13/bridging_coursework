@@ -149,3 +149,9 @@
     background-color: #333;
     color: white;
 }
+
+.fa-file-text,
+.fa-file-text:hover {
+    background-color: red;
+    color: white;
+}
