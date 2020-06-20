@@ -7,7 +7,7 @@
             <div class="col-sm-3 d-none d-sm-block"></div>
 
             <div class="col-sm-6">
-                <div class="bio-box">
+                <div class="bio-box" id="bio">
                     <img class="profile-pic" src="{{ bio.first.image.url }}">
                     <div class="bio-text-container">
                         <p class="bio-text">{{ bio.first.text }}</p>
@@ -24,19 +24,21 @@
 {% endblock %}
 
 {% block scrollspy %}
-    <div data-spy="scroll" data-target="scrollspy" data-offset="50" class="div-scrollspy d-none d-sm-block" style="height: 100%">
-        <nav class="navbar display-4 sticky-top" id="scrollspy">
-            <a class="navbar-item nav-link" href="#bio">Biography</a>
-            <a class="navbar-item nav-link" href="#work">Work Experience</a>
-            <a class="navbar-item nav-link" href="#education">Education</a>
-            <a class="navbar-item nav-link" href="#achievements">Achievements</a>
-            <a class="navbar-item nav-link" href="#qualifications">Qualifications</a>
-            <a class="navbar-item nav-link" href="#skills">Skills</a>
-            <a class="navbar-item nav-link" href="#interests">Interests</a>
-            <a class="navbar-item nav-link" href="#projects">Projects</a>
-            <a class="navbar-item nav-link" href="#contact">Contact Information</a>
+    {% comment %} <div data-spy="scroll" data-target="scrollspy" data-offset="10" class="div-scrollspy d-none d-sm-block" style="height: 100%;"> {% endcomment %}
+        <div style="height: 100%;">
+        <nav class="navbar display-4 nav nav-pills nav-stacked sticky-top" id="scrollspy">
+            <a class="nav-item nav-link active" href="#bio">Biography</a>
+            <a class="nav-item nav-link" href="#work">Work Experience</a>
+            <a class="nav-item nav-link" href="#education">Education</a>
+            <a class="nav-item nav-link" href="#achievements">Achievements</a>
+            <a class="nav-item nav-link" href="#qualifications">Qualifications</a>
+            <a class="nav-item nav-link" href="#skills">Skills</a>
+            <a class="nav-item nav-link" href="#interests">Interests</a>
+            <a class="nav-item nav-link" href="#projects">Projects</a>
+            <a class="nav-item nav-link" href="#contact">Contact Information</a>
         </nav>
-    </div>
+        </div>
+    {% comment %} </div> {% endcomment %}
 {% endblock %}
 
 {% block content %}

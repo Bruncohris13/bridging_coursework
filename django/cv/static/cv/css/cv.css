@@ -40,17 +40,6 @@
 
 .div-scrollspy {
     position: relative;
-    top: 200px;
-}
-
-.div-scrollspy a {
-    display: block;
-}
-
-#scrollspy {
-    top: 50%;
-    transform: translateY(-50%);
-    display: block;
 }
 
 .cv-post,
