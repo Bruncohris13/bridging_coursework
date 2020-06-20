@@ -24,12 +24,10 @@
 {% endblock %}
 
 {% block scrollspy %}
-    {% comment %} <div data-spy="scroll" data-target="scrollspy" data-offset="10" class="div-scrollspy d-none d-sm-block" style="height: 100%;"> {% endcomment %}
-        <div style="height: 100%;">
-        <nav class="navbar display-4 nav nav-pills nav-stacked sticky-top" id="scrollspy">
-            <a class="nav-item nav-link active" href="#bio">Biography</a>
-            <a class="nav-item nav-link" href="#work">Work Experience</a>
+    <div style="height: 100%;">
+        <nav class="navbar display-4 nav nav-pills sticky-top" id="scrollspy">
             <a class="nav-item nav-link" href="#education">Education</a>
+            <a class="nav-item nav-link" href="#work">Work Experience</a>
             <a class="nav-item nav-link" href="#achievements">Achievements</a>
             <a class="nav-item nav-link" href="#qualifications">Qualifications</a>
             <a class="nav-item nav-link" href="#skills">Skills</a>
@@ -37,8 +35,7 @@
             <a class="nav-item nav-link" href="#projects">Projects</a>
             <a class="nav-item nav-link" href="#contact">Contact Information</a>
         </nav>
-        </div>
-    {% comment %} </div> {% endcomment %}
+    </div>
 {% endblock %}
 
 {% block content %}
@@ -177,5 +174,4 @@
             <a href="#" class="fa fa-github"></a>
             <a href="#" class="fa fa-file-text"></a>
         </div>
-
 {% endblock %}

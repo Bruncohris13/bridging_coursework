@@ -5,9 +5,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -27,7 +24,7 @@
     {% endblock %}
 </head>
 
-<body>
+<body class= "div-scrollspy" data-spy="scroll" data-target="#scrollspy" data-offset="5">
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark ">
         <a href="/" class="navbar-brand display-4">Christos Efstathiou</a>
 
@@ -49,14 +46,14 @@
     
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-2"></div>
+            <div class="col-sm-2 d-none d-sm-block"></div>
 
-            <div class="middle-container col-sm-8 div-scrollspy d-none d-sm-block" data-spy="scroll" data-target="scrollspy" data-offset="10">
+            <div class="middle-container col-sm-8">
                 {% block content %}
                 {% endblock %}
             </div>
             
-            <div class="scrollspy-container col-sm-2">
+            <div class="scrollspy-container col-sm-2 d-none d-sm-block">
                 {% block scrollspy %}
                 {% endblock %}
             </div>
