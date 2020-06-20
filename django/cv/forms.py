@@ -1,6 +1,12 @@
 from django import forms
 from .models import *
 
+class CvPdfForm(forms.ModelForm):
+    class Meta:
+        model = CvPdf
+        fields = ('cv_pdf',)
+
+
 class BioForm(forms.ModelForm):
     class Meta:
         model = Bio

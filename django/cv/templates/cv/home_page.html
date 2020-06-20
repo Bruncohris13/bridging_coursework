@@ -172,6 +172,9 @@
             <a href="mailto:cefstathiou13@gmail.com" class="fa fa-envelope bg-primary"></a>
             <i onclick="window.open('https://www.linkedin.com/in/christos-efstathiou/', '_blank')" class="fa fa-linkedin"></i>
             <i onclick="window.open('https://github.com/Brunochris13', '_blank')" class="fa fa-github"></i>
-            <a href="#" class="fa fa-file-text"></a>
+            <a download href="{{ cv_pdf.first.cv_pdf.url }}" class="fa fa-file-text"></a>
+            {% if user.is_authenticated %}
+                <a class="btn btn-default" href="{% url 'cv_pdf_upload' %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            {% endif %}
         </div>
 {% endblock %}

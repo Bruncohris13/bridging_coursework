@@ -7,4 +7,5 @@ urlpatterns = [
     path('cv_post_new/<str:category>/', views.cv_post_new, name='cv_post_new'),
     path('cv_post_edit/<str:category>/<int:pk>/', views.cv_post_edit, name='cv_post_edit'),
     path('cv_post_delete/<str:category>/<int:pk>/', views.cv_post_delete, name='cv_post_delete'),
+    path('cv_pdf/upload/', views.cv_pdf_upload, name='cv_pdf_upload'),
 ]

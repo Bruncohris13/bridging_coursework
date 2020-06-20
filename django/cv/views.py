@@ -12,6 +12,7 @@ def home_page(request):
     skills = SkillPost.objects.all()
     interests = InterestPost.objects.all()
     projects = ProjectPost.objects.all()
+    cv_pdf = CvPdf.objects.all()
 
     return render(request, 'cv/home_page.html', {
         'bio': bio,
@@ -22,6 +23,7 @@ def home_page(request):
         'skills': skills,
         'interests': interests,
         'projects': projects,
+        'cv_pdf': cv_pdf,
     })
 
 def bio_edit(request):
@@ -92,3 +94,17 @@ def get_post_class(category):
         'Project' : ProjectPost,
     }
     return switcher.get(category, "Invalid category")
+
+def cv_pdf_upload(request):
+    cv_pdf = CvPdf.objects.first()
+    if request.method == 'POST':
+        form = CvPdfForm(request.POST, request.FILES, instance=cv_pdf)
+        if form.is_valid():
+            cv_pdf = form.save(commit=False)
+            cv_pdf.save()
+            return redirect('home_page')
+    else:
+        form = CvPdfForm(instance=cv_pdf)
+    return render(request, 'cv/cv_post_edit.html', {
+        'form': form
+    })

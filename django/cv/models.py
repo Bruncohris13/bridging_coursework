@@ -1,5 +1,9 @@
 from django.db import models
 
+class CvPdf(models.Model):
+    cv_pdf = models.FileField(upload_to='cv/pdf/cv')
+
+
 class Bio(models.Model):
     text = models.TextField()
     image = models.ImageField(upload_to='cv/img/profile')
