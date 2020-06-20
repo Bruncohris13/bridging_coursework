@@ -133,6 +133,7 @@
 .fa:hover {
     opacity: 0.9;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .fa-linkedin,
