@@ -83,7 +83,6 @@
         {% for post in achievements %}
             <div class="cv-post">
                 <h2 class="cv-post-title">{{ post.title }}</h2>
-                <h3 class="cv-post-sub-title">{{ post.sub_title }}</h3>
                 <p class="cv-post-text">{{ post.text|linebreaksbr }}</p>
                 {% if user.is_authenticated %}
                     <a class="btn btn-default" href="{% url 'cv_post_edit' category='Achievement' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
