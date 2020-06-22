@@ -115,14 +115,43 @@
         {% endif %}
     </h1>
         <div class="skills-container">
+            <h2 class="cv-post-title">Programming Languages</h2>
             {% for post in skills %}
-                <div class="skill-post">
-                    <p class="skill-text">{{ post.skill }}</p>
-                    {% if user.is_authenticated %}
-                        <a class="btn btn-default" href="{% url 'cv_post_edit' category='Skill' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-                        <a href="{% url 'cv_post_delete' category='Skill' pk=post.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
-                    {% endif %}
-                </div>
+                {% if post.category == 'PROGRAMMING_LANGUAGES'%}
+                    <div class="skill-post">
+                        <p class="skill-text">{{ post.skill }}</p>
+                            {% if user.is_authenticated %}
+                                <a class="btn btn-default" href="{% url 'cv_post_edit' category='Skill' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                                <a href="{% url 'cv_post_delete' category='Skill' pk=post.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                            {% endif %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <h2 class="cv-post-title">Programming Tools</h2>
+            {% for post in skills %}
+                {% if post.category == 'PROGRAMMING_TOOLS'%}
+                    <div class="skill-post">
+                        <p class="skill-text">{{ post.skill }}</p>
+                            {% if user.is_authenticated %}
+                                <a class="btn btn-default" href="{% url 'cv_post_edit' category='Skill' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                                <a href="{% url 'cv_post_delete' category='Skill' pk=post.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                            {% endif %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <h2 class="cv-post-title">Languages</h2>
+            {% for post in skills %}
+                {% if post.category == 'LANGUAGES'%}
+                    <div class="skill-post">
+                        <p class="skill-text">{{ post.skill }}</p>
+                            {% if user.is_authenticated %}
+                                <a class="btn btn-default" href="{% url 'cv_post_edit' category='Skill' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                                <a href="{% url 'cv_post_delete' category='Skill' pk=post.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                            {% endif %}
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
 

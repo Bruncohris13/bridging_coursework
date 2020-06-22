@@ -26,8 +26,15 @@ class QualificationPost(CVPost):
     pass
 
 
+SKILL_CATEGORIES = (
+    ('LANGUAGES', 'Languages'),
+    ('PROGRAMMING_LANGUAGES', 'Programming Languages'),
+    ('PROGRAMMING_TOOLS', 'Programming Tools')
+)
+
 class SkillPost(models.Model):
     skill = models.CharField(max_length=50)
+    category = models.CharField(max_length=150, choices=SKILL_CATEGORIES, default='PROGRAMMING_LANGUAGES')
 
 class InterestPost(models.Model):
     interest = models.CharField(max_length=50)
