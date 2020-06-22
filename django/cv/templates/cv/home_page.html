@@ -179,7 +179,7 @@
     </h1>
         <div class="row projects-container">
             {% for post in projects %}
-                <div class="col-6 col-md-4 mt-4 mb-4">
+                <div class="col-6 col-md-4 mt-4 mb-4 project-card-col">
                     <div class="card project-card" onclick="window.open('{{ post.url }}', '_blank')">
                         <img class="card-img-top" src="{{ post.image.url }}">
                         <div class="card-body project-card-body">

@@ -78,6 +78,7 @@
 .skill-text,
 .interest-text {
     font-size: 16px;
+    text-align: justify;
 }
 
 .skill-post,
@@ -95,6 +96,10 @@
 .interest-text {
     vertical-align: middle;
     margin: 0;
+}
+
+.project-card-col {
+    padding: 10px;
 }
 
 .project-card {
