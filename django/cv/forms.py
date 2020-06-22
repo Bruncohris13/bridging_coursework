@@ -42,7 +42,7 @@ class QualificationPostForm(CVPostForm):
 class SkillPostForm(forms.ModelForm):
     class Meta:
         model = SkillPost
-        fields = ('skill',)
+        fields = ('skill', 'category')
 
 class InterestPostForm(forms.ModelForm):
     class Meta:
