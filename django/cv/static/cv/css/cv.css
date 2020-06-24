@@ -81,6 +81,10 @@
     text-align: justify;
 }
 
+.cv-post-list {
+    padding-left: 20px;
+}
+
 .skill-post,
 .interest-post {
     display: inline-block;

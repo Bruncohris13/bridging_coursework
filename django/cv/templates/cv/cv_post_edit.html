@@ -6,5 +6,8 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="submit-text">Save</button>
+        <h2>Helpful Instructions:</h2>
+            <p>You can use <strong>"cv-post-text"</strong>, <strong>"cv-post-list"</strong>
+             for <u>CSS</u> classes and whatever <u>HTML</u> tags you want, like <strong>"ul"</strong> and <strong>"ol"</strong>.</p>
     </form>
 {% endblock %}
