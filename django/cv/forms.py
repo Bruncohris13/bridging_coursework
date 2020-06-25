@@ -54,3 +54,9 @@ class ProjectPostForm(forms.ModelForm):
     class Meta:
         model = ProjectPost
         fields = ('title', 'text', 'image', 'url')
+
+
+class AddActivitiesPostForm(forms.ModelForm):
+    class Meta:
+        model = AddActivitiesPost
+        fields = ('text',)

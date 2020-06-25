@@ -11,6 +11,7 @@ def home_page(request):
     qualifications = QualificationPost.objects.all()
     skills = SkillPost.objects.all()
     interests = InterestPost.objects.all()
+    add_activities = AddActivitiesPost.objects.all()
     projects = ProjectPost.objects.all()
     cv_pdf = CvPdf.objects.all()
 
@@ -24,6 +25,7 @@ def home_page(request):
         'interests': interests,
         'projects': projects,
         'cv_pdf': cv_pdf,
+        'add_activities': add_activities,
     })
 
 def bio_edit(request):
@@ -80,6 +82,7 @@ def get_form_class(category):
         'Skill' : SkillPostForm,
         'Interest' : InterestPostForm,
         'Project' : ProjectPostForm,
+        'Add_Activities' : AddActivitiesPostForm,
     }
     return switcher.get(category, "Invalid category")
 
@@ -92,6 +95,7 @@ def get_post_class(category):
         'Skill' : SkillPost,
         'Interest' : InterestPost,
         'Project' : ProjectPost,
+        'Add_Activities' : AddActivitiesPost,
     }
     return switcher.get(category, "Invalid category")
 

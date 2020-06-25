@@ -50,3 +50,10 @@ class ProjectPost(models.Model):
     text = models.TextField()
     image = models.ImageField(upload_to='cv/img/projects')
     url = models.URLField(max_length=300)
+
+
+class AddActivitiesPost(models.Model):
+    text = models.TextField(default="<ul class='fa-ul cv-post-text'><li><i class='fa-li fa fa-users'></i> </li></ul>")
+
+    def formatted_markdown(self):
+        return markdownify(self.text)

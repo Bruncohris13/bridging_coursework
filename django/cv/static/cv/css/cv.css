@@ -167,3 +167,18 @@
     background-color: red;
     color: white;
 }
+
+.fa-users,
+.fa-graduation-cap {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    top: 25%;
+}
+
+.fa-users:hover,
+.fa-graduation-cap:hover {
+    text-decoration: none;
+    cursor: auto;
+    opacity: 1;
+}
