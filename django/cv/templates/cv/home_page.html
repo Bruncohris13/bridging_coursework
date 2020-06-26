@@ -43,7 +43,7 @@
 {% block content %}
     <h1 id="education" class="display-3">Education
         {% if user.is_authenticated %}
-            <a class="btn btn-default" href="{% url 'cv_post_new' category='Education' %}"><span class="glyphicon glyphicon-plus"></span></a>
+            <a class="btn btn-default" href="{% url 'cv_post_new' category='Education' %}" id="education_new"><span class="glyphicon glyphicon-plus"></span></a>
         {% endif %}
     </h1>  
         {% for post in education %}
