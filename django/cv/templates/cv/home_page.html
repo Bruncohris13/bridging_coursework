@@ -47,7 +47,7 @@
         {% endif %}
     </h1>  
         {% for post in education %}
-            <div class="cv-post">
+            <div class="cv-post" id="education-post">
                 <h2 class="cv-post-title">{{ post.title }}</h2>
                 <h3 class="cv-post-sub-title">{{ post.sub_title }}</h3>
                 <p class="cv-post-text">{{ post.formatted_markdown|safe }}</p>

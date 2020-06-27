@@ -26,6 +26,7 @@ class MyTests(unittest.TestCase):
         password_inputbox.send_keys('Chris-bruno13')
 
         password_inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
 
         view_site = self.browser.find_element_by_xpath("//div[@id='user-tools']/a[1]")
         view_site.click()
@@ -94,9 +95,32 @@ class MyTests(unittest.TestCase):
     
     def test_education(self):
         self.enableAdmin()
-        # self.browser.get('http://localhost:8000')
 
         education_new = self.browser.find_element_by_id('education_new')
+        education_new.click()
+
+        self.assertEqual("http://localhost:8000/cv_post_new/Education/", self.browser.current_url)
+
+        title = self.browser.find_element_by_id("id_title")
+        sub_title = self.browser.find_element_by_id("id_sub_title")
+        text = self.browser.find_element_by_id("id_text")
+        submit = self.browser.find_element_by_class_name("submit-text")
+
+        title.send_keys("Test Education Post")
+        sub_title.send_keys("Subtitle")
+        text.send_keys("Text for Education Post")
+        submit.click()
+
+        time.sleep(1)
+
+        education_posts = self.browser.find_elements_by_id("education-post")
+    
+        self.assertIn('Test Education Post', education_posts[-1].find_element_by_class_name("cv-post-title").text)
+        self.assertIn('Subtitle', education_posts[-1].find_element_by_class_name("cv-post-sub-title").text)
+        self.assertIn('Text for Education Post', education_posts[-1].text)
+
+
+
 
 if __name__ == '__main__':  
     unittest.main(warnings='ignore')  
