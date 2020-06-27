@@ -112,8 +112,9 @@ class MyTests(unittest.TestCase):
         # Login as Admin
         self.enableAdmin()
 
-        # Add new Education Post
-        education_new = self.browser.find_element_by_id('education_new')
+        # Add New Education Post
+        education_title = self.browser.find_element_by_id('education')
+        education_new = education_title.find_element_by_class_name("glyphicon-plus")
         education_new.click()
 
         # Check if the url is correct
@@ -178,6 +179,143 @@ class MyTests(unittest.TestCase):
         self.assertNotIn('Test Education Post [Edited]', education_posts[-1].find_element_by_class_name("cv-post-title").text)
         self.assertNotIn('Subtitle [Edited]', education_posts[-1].find_element_by_class_name("cv-post-sub-title").text)
         self.assertNotIn('Text for Education Post [Edited]', education_posts[-1].text)
+
+    def test_work(self):
+        # Login as Admin
+        self.enableAdmin()
+
+        # Add New Work Experience Post
+        work_title = self.browser.find_element_by_id('work')
+        work_new = work_title.find_element_by_class_name("glyphicon-plus")
+        work_new.click()
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/cv_post_new/Work/", self.browser.current_url)
+
+        title = self.browser.find_element_by_id("id_title")
+        sub_title = self.browser.find_element_by_id("id_sub_title")
+        text = self.browser.find_element_by_id("id_text")
+        submit = self.browser.find_element_by_class_name("submit-text")
+
+        # Complete the Form
+        title.send_keys("Test Work Experience Post")
+        sub_title.send_keys("Subtitle")
+        text.send_keys("Text for Work Experience Post")
+        submit.click()
+
+        time.sleep(1)
+    
+        # Check if the new Post appears on the Home Page
+        work_posts = self.browser.find_elements_by_id("work-post")
+
+        self.assertIn('Test Work Experience Post', work_posts[-1].find_element_by_class_name("cv-post-title").text)
+        self.assertIn('Subtitle', work_posts[-1].find_element_by_class_name("cv-post-sub-title").text)
+        self.assertIn('Text for Work Experience Post', work_posts[-1].text)
+
+
+        # Edit the new Post
+        work_post_edit = work_posts[-1].find_element_by_class_name("glyphicon-pencil")
+        work_post_edit.click()
+
+        # Check if the url is correct
+        self.assertIn("http://localhost:8000/cv_post_edit/Work/", self.browser.current_url)
+
+        title = self.browser.find_element_by_id("id_title")
+        sub_title = self.browser.find_element_by_id("id_sub_title")
+        text = self.browser.find_element_by_id("id_text")
+        submit = self.browser.find_element_by_class_name("submit-text")
+
+        # Edit the Form
+        title.send_keys(" [Edited]")
+        sub_title.send_keys(" [Edited]")
+        text.send_keys(" [Edited]")
+        submit.click()
+
+        time.sleep(1)
+
+        # Check if the Edited Post has been edited on the Home Page
+        work_posts = self.browser.find_elements_by_id("work-post")
+
+        self.assertIn('Test Work Experience Post [Edited]', work_posts[-1].find_element_by_class_name("cv-post-title").text)
+        self.assertIn('Subtitle [Edited]', work_posts[-1].find_element_by_class_name("cv-post-sub-title").text)
+        self.assertIn('Text for Work Experience Post [Edited]', work_posts[-1].text)
+
+
+        # Delete the new Post
+        work_post_delete = work_posts[-1].find_element_by_class_name("close")
+        work_post_delete.click()
+
+        # Check if the New Post has been removed on the Home Page
+        work_posts = self.browser.find_elements_by_id("education-post")
+
+        self.assertNotIn('Test Work Experience Post [Edited]', work_posts[-1].find_element_by_class_name("cv-post-title").text)
+        self.assertNotIn('Subtitle [Edited]', work_posts[-1].find_element_by_class_name("cv-post-sub-title").text)
+        self.assertNotIn('Text for Work Experience Post [Edited]', work_posts[-1].text)
+
+    def test_achievements(self):
+        # Login as Admin
+        self.enableAdmin()
+
+        # Add New Achievements Post
+        achievements_title = self.browser.find_element_by_id('achievements')
+        achievements_new = achievements_title.find_element_by_class_name("glyphicon-plus")
+        achievements_new.click()
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/cv_post_new/Achievement/", self.browser.current_url)
+
+        title = self.browser.find_element_by_id("id_title")
+        text = self.browser.find_element_by_id("id_text")
+        submit = self.browser.find_element_by_class_name("submit-text")
+
+        # Complete the Form
+        title.send_keys("Test Achievement Post")
+        text.send_keys("Text for Achievement Post")
+        submit.click()
+
+        time.sleep(1)
+    
+        # Check if the new Post appears on the Home Page
+        achievement_posts = self.browser.find_elements_by_id("achievement-post")
+
+        self.assertIn('Test Achievement Post', achievement_posts[-1].find_element_by_class_name("cv-post-title").text)
+        self.assertIn('Text for Achievement Post', achievement_posts[-1].text)
+
+
+        # Edit the new Post
+        achievement_post_edit = achievement_posts[-1].find_element_by_class_name("glyphicon-pencil")
+        achievement_post_edit.click()
+
+        # Check if the url is correct
+        self.assertIn("http://localhost:8000/cv_post_edit/Achievement/", self.browser.current_url)
+
+        title = self.browser.find_element_by_id("id_title")
+        text = self.browser.find_element_by_id("id_text")
+        submit = self.browser.find_element_by_class_name("submit-text")
+
+        # Edit the Form
+        title.send_keys(" [Edited]")
+        text.send_keys(" [Edited]")
+        submit.click()
+
+        time.sleep(1)
+
+        # Check if the Edited Post has been edited on the Home Page
+        achievement_posts = self.browser.find_elements_by_id("achievement-post")
+
+        self.assertIn('Test Achievement Post [Edited]', achievement_posts[-1].find_element_by_class_name("cv-post-title").text)
+        self.assertIn('Text for Achievement Post [Edited]', achievement_posts[-1].text)
+
+
+        # Delete the new Post
+        achievement_post_delete = achievement_posts[-1].find_element_by_class_name("close")
+        achievement_post_delete.click()
+
+        # Check if the New Post has been removed on the Home Page
+        achievement_posts = self.browser.find_elements_by_id("achievement-post")
+
+        self.assertNotIn('Test Achievement Post [Edited]', achievement_posts[-1].find_element_by_class_name("cv-post-title").text)
+        self.assertNotIn('Text for Achievement Post [Edited]', achievement_posts[-1].text)
 
 
 if __name__ == '__main__':  
