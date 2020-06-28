@@ -656,6 +656,76 @@ class MyTests(unittest.TestCase):
 
         self.assertNotIn('Test Interest Post [Edited]', interests_posts[-1].find_element_by_class_name("interest-text").text)
 
+    def test_projects(self):
+        pass
+
+    def test_add_activities(self):
+        # Login as Admin
+        self.enableAdmin()
+
+        # Add New Additional Activities Post
+        add_activities_title = self.browser.find_element_by_id('add_activities')
+        add_activities_new = add_activities_title.find_element_by_class_name("glyphicon-plus")
+        add_activities_new.click()
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/cv_post_new/Add_Activities/", self.browser.current_url)
+
+        text = self.browser.find_element_by_id("id_text")
+        submit = self.browser.find_element_by_class_name("submit-text")
+
+        # Complete the Form
+        text.send_keys("Text for Additional Activities Post")
+        submit.click()
+
+        time.sleep(1)
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
+    
+        # Check if the new Post appears on the Home Page
+        add_activities_posts = self.browser.find_elements_by_id("add-activities-post")
+
+        self.assertIn('Text for Additional Activities Post', add_activities_posts[-1].text)
+
+
+        # Edit the new Post
+        add_activities_post_edit = add_activities_posts[-1].find_element_by_class_name("glyphicon-pencil")
+        add_activities_post_edit.click()
+
+        # Check if the url is correct
+        self.assertIn("http://localhost:8000/cv_post_edit/Add_Activities/", self.browser.current_url)
+
+        text = self.browser.find_element_by_id("id_text")
+        submit = self.browser.find_element_by_class_name("submit-text")
+
+        # Edit the Form
+        text.send_keys(" [Edited]")
+        submit.click()
+
+        time.sleep(1)
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
+
+        # Check if the Edited Post has been edited on the Home Page
+        add_activities_posts = self.browser.find_elements_by_id("add-activities-post")
+
+        self.assertIn('Text for Additional Activities Post [Edited]', add_activities_posts[-1].text)
+
+
+        # Delete the new Post
+        add_activities_post_delete = add_activities_posts[-1].find_element_by_class_name("close")
+        add_activities_post_delete.click()
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
+
+        # Check if the New Post has been removed on the Home Page
+        add_activities_posts = self.browser.find_elements_by_id("add-activities-post")
+
+        self.assertNotIn('Text for Additional Activities Post [Edited]', add_activities_posts[-1].text)
+
 
 if __name__ == '__main__':  
     unittest.main(warnings='ignore')  
