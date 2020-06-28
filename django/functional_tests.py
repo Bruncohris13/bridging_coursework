@@ -382,6 +382,87 @@ class MyTests(unittest.TestCase):
         self.assertNotIn('Test Qualification Post [Edited]', qualification_posts[-1].find_element_by_class_name("cv-post-title").text)
         self.assertNotIn('Text for Qualification Post [Edited]', qualification_posts[-1].text)
 
+    def test_skills(self):
+        # Login as Admin
+        self.enableAdmin()
+
+        skill_categories = {
+            "Languages": "languages",
+            "Programming Languages": "programming_languages",
+            "Programming Tools": "programming_tools",
+        }
+
+        # Add New Skill Post for everty category
+        for i, k in enumerate(skill_categories):
+
+            # Add New Skill Post
+            skills_title = self.browser.find_element_by_id('skills')
+            skills_new = skills_title.find_element_by_class_name("glyphicon-plus")
+            skills_new.click()
+
+            # Check if the url is correct
+            self.assertEqual("http://localhost:8000/cv_post_new/Skill/", self.browser.current_url)
+
+            skill = self.browser.find_element_by_id("id_skill")
+            category = self.browser.find_element_by_id("id_category")
+            submit = self.browser.find_element_by_class_name("submit-text")
+
+            # Complete the Form each time with a Different Category         
+            category.click()
+            category_option = category.find_elements_by_tag_name("option")
+            category_option[i].click()
+
+            skill.send_keys("Test Skill Post " + category_option[i].text)
+
+            submit.click()
+
+            time.sleep(1)
+    
+        # Check if the new Posts appears on the Home Page
+        for skill_name, skill_id in skill_categories.items():
+            skills_posts = self.browser.find_elements_by_id(skill_id)
+
+            self.assertIn('Test Skill Post ' + skill_name, skills_posts[-1].find_element_by_class_name("skill-text").text)
+
+        # Edit the new Posts
+        for skill_name, skill_id in skill_categories.items():
+            skills_posts = self.browser.find_elements_by_id(skill_id)
+
+            skill_post_edit = skills_posts[-1].find_element_by_class_name("glyphicon-pencil")
+            skill_post_edit.click()
+
+            # Check if the url is correct
+            self.assertIn("http://localhost:8000/cv_post_edit/Skill/", self.browser.current_url)
+
+            skill = self.browser.find_element_by_id("id_skill")
+            category = self.browser.find_element_by_id("id_category")
+            submit = self.browser.find_element_by_class_name("submit-text")
+
+            # Edit the Form
+            skill.send_keys(" [Edited]")
+            submit.click()
+
+            time.sleep(1)
+
+        # Check if the Edited Posts have been edited on the Home Page
+        for skill_name, skill_id in skill_categories.items():
+            skills_posts = self.browser.find_elements_by_id(skill_id)
+
+            self.assertIn('Test Skill Post ' + skill_name + ' [Edited]', skills_posts[-1].find_element_by_class_name("skill-text").text)
+
+        # Delete the new Posts
+        for skill_name, skill_id in skill_categories.items():
+            skills_posts = self.browser.find_elements_by_id(skill_id)
+
+            skill_post_delete = skills_posts[-1].find_element_by_class_name("close")
+            skill_post_delete.click()
+
+        # Check if the New Posts have been removed on the Home Page
+        for skill_name, skill_id in skill_categories.items():
+            skills_posts = self.browser.find_elements_by_id(skill_id)
+
+            self.assertNotIn('Test Skill Post ' + skill_name + ' [Edited]', skills_posts[-1].find_element_by_class_name("skill-text").text)
+
 
 if __name__ == '__main__':  
     unittest.main(warnings='ignore')  
