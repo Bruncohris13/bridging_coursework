@@ -132,6 +132,9 @@ class MyTests(unittest.TestCase):
         submit.click()
 
         time.sleep(1)
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
     
         # Check if the new Post appears on the Home Page
         education_posts = self.browser.find_elements_by_id("education-post")
@@ -161,6 +164,9 @@ class MyTests(unittest.TestCase):
 
         time.sleep(1)
 
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
+
         # Check if the Edited Post has been edited on the Home Page
         education_posts = self.browser.find_elements_by_id("education-post")
 
@@ -172,6 +178,9 @@ class MyTests(unittest.TestCase):
         # Delete the new Post
         education_post_delete = education_posts[-1].find_element_by_class_name("close")
         education_post_delete.click()
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
 
         # Check if the New Post has been removed on the Home Page
         education_posts = self.browser.find_elements_by_id("education-post")
@@ -204,6 +213,9 @@ class MyTests(unittest.TestCase):
         submit.click()
 
         time.sleep(1)
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
     
         # Check if the new Post appears on the Home Page
         work_posts = self.browser.find_elements_by_id("work-post")
@@ -233,6 +245,9 @@ class MyTests(unittest.TestCase):
 
         time.sleep(1)
 
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
+
         # Check if the Edited Post has been edited on the Home Page
         work_posts = self.browser.find_elements_by_id("work-post")
 
@@ -244,6 +259,9 @@ class MyTests(unittest.TestCase):
         # Delete the new Post
         work_post_delete = work_posts[-1].find_element_by_class_name("close")
         work_post_delete.click()
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
 
         # Check if the New Post has been removed on the Home Page
         work_posts = self.browser.find_elements_by_id("education-post")
@@ -274,6 +292,9 @@ class MyTests(unittest.TestCase):
         submit.click()
 
         time.sleep(1)
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
     
         # Check if the new Post appears on the Home Page
         achievement_posts = self.browser.find_elements_by_id("achievement-post")
@@ -300,6 +321,9 @@ class MyTests(unittest.TestCase):
 
         time.sleep(1)
 
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
+
         # Check if the Edited Post has been edited on the Home Page
         achievement_posts = self.browser.find_elements_by_id("achievement-post")
 
@@ -310,6 +334,9 @@ class MyTests(unittest.TestCase):
         # Delete the new Post
         achievement_post_delete = achievement_posts[-1].find_element_by_class_name("close")
         achievement_post_delete.click()
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
 
         # Check if the New Post has been removed on the Home Page
         achievement_posts = self.browser.find_elements_by_id("achievement-post")
@@ -339,6 +366,9 @@ class MyTests(unittest.TestCase):
         submit.click()
 
         time.sleep(1)
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
     
         # Check if the new Post appears on the Home Page
         qualification_posts = self.browser.find_elements_by_id("qualification-post")
@@ -365,6 +395,9 @@ class MyTests(unittest.TestCase):
 
         time.sleep(1)
 
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
+
         # Check if the Edited Post has been edited on the Home Page
         qualification_posts = self.browser.find_elements_by_id("qualification-post")
 
@@ -375,6 +408,9 @@ class MyTests(unittest.TestCase):
         # Delete the new Post
         qualification_post_delete = qualification_posts[-1].find_element_by_class_name("close")
         qualification_post_delete.click()
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
 
         # Check if the New Post has been removed on the Home Page
         qualification_posts = self.browser.find_elements_by_id("qualification-post")
@@ -417,12 +453,16 @@ class MyTests(unittest.TestCase):
             submit.click()
 
             time.sleep(1)
+
+            # Check if the url is correct
+            self.assertEqual("http://localhost:8000/", self.browser.current_url)
     
-        # Check if the new Posts appears on the Home Page
+        # Check if the new Posts appear on the Home Page
         for skill_name, skill_id in skill_categories.items():
             skills_posts = self.browser.find_elements_by_id(skill_id)
 
             self.assertIn('Test Skill Post ' + skill_name, skills_posts[-1].find_element_by_class_name("skill-text").text)
+
 
         # Edit the new Posts
         for skill_name, skill_id in skill_categories.items():
@@ -444,11 +484,15 @@ class MyTests(unittest.TestCase):
 
             time.sleep(1)
 
+            # Check if the url is correct
+            self.assertEqual("http://localhost:8000/", self.browser.current_url)
+
         # Check if the Edited Posts have been edited on the Home Page
         for skill_name, skill_id in skill_categories.items():
             skills_posts = self.browser.find_elements_by_id(skill_id)
 
             self.assertIn('Test Skill Post ' + skill_name + ' [Edited]', skills_posts[-1].find_element_by_class_name("skill-text").text)
+
 
         # Delete the new Posts
         for skill_name, skill_id in skill_categories.items():
@@ -457,12 +501,94 @@ class MyTests(unittest.TestCase):
             skill_post_delete = skills_posts[-1].find_element_by_class_name("close")
             skill_post_delete.click()
 
+            # Check if the url is correct
+            self.assertEqual("http://localhost:8000/", self.browser.current_url)
+
         # Check if the New Posts have been removed on the Home Page
         for skill_name, skill_id in skill_categories.items():
             skills_posts = self.browser.find_elements_by_id(skill_id)
 
             self.assertNotIn('Test Skill Post ' + skill_name + ' [Edited]', skills_posts[-1].find_element_by_class_name("skill-text").text)
 
+    def test_skill_change_category(self):
+        # Login as Admin
+        self.enableAdmin()
+
+        # Add New Skill Post
+        skills_title = self.browser.find_element_by_id('skills')
+        skills_new = skills_title.find_element_by_class_name("glyphicon-plus")
+        skills_new.click()
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/cv_post_new/Skill/", self.browser.current_url)
+
+        skill = self.browser.find_element_by_id("id_skill")
+        category = self.browser.find_element_by_id("id_category")
+        submit = self.browser.find_element_by_class_name("submit-text")
+
+        # Complete the Form with category 'Language'
+        category.click()
+        category_option = category.find_elements_by_tag_name("option")
+        category_option[0].click()
+
+        skill.send_keys("Test Skill Post")
+
+        submit.click()
+
+        time.sleep(1)
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
+
+        # Check if the new Post appears on the Home Page
+        skills_posts_language = self.browser.find_elements_by_id('languages')
+
+        self.assertIn('Test Skill Post', skills_posts_language[-1].find_element_by_class_name("skill-text").text)
+
+
+        # Edit the new Post  
+        skill_post_edit = skills_posts_language[-1].find_element_by_class_name("glyphicon-pencil")
+        skill_post_edit.click()
+
+        # Check if the url is correct
+        self.assertIn("http://localhost:8000/cv_post_edit/Skill/", self.browser.current_url)
+
+        skill = self.browser.find_element_by_id("id_skill")
+        category = self.browser.find_element_by_id("id_category")
+        submit = self.browser.find_element_by_class_name("submit-text")
+
+        # Edit the Form and change the Skill Category to 'Programming Languages'
+        skill.send_keys(" [Edited]")
+
+        category.click()
+        category_option = category.find_elements_by_tag_name("option")
+        category_option[1].click()
+
+        submit.click()
+
+        time.sleep(1)
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
+
+        # Check if the Edited Post has been edited on the Home Page
+        skills_posts_prog_lang = self.browser.find_elements_by_id('programming_languages')
+
+        self.assertIn('Test Skill Post [Edited]', skills_posts_prog_lang[-1].find_element_by_class_name("skill-text").text)
+
+        # Delete the new Post
+        skill_post_delete = skills_posts_prog_lang[-1].find_element_by_class_name("close")
+        skill_post_delete.click()
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
+
+        # Check if the New Post has been removed on the Home Page from both categories
+        skills_posts_prog_lang = self.browser.find_elements_by_id('programming_languages')
+        skills_posts_languages = self.browser.find_elements_by_id('languages')
+
+        self.assertNotIn('Test Skill Post [Edited]', skills_posts_prog_lang[-1].find_element_by_class_name("skill-text").text)
+        self.assertNotIn('Test Skill Post [Edited]', skills_posts_languages[-1].find_element_by_class_name("skill-text").text)
 
 if __name__ == '__main__':  
     unittest.main(warnings='ignore')  
