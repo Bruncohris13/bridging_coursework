@@ -726,6 +726,44 @@ class MyTests(unittest.TestCase):
 
         self.assertNotIn('Text for Additional Activities Post [Edited]', add_activities_posts[-1].text)
 
+    def test_contact(self):
+        # Go to the Home Page  
+        self.browser.get('http://localhost:8000/')
+
+        # Check if the Email link is correct
+        email_link = self.browser.find_element_by_class_name("fa-envelope")
+        self.assertIn('cefstathiou13@gmail.com', email_link.get_attribute('href'))
+
+
+        # Check if the Linkedin link is correct (Cannot check if it is working, because it needs verification)
+        linkedin_link = self.browser.find_element_by_class_name("fa-linkedin")
+        self.assertIn('https://www.linkedin.com/in/christos-efstathiou/', linkedin_link.get_attribute('onclick'))
+
+
+        # Check if the Github link is correct
+        github_link = self.browser.find_element_by_class_name("fa-github")
+        self.assertIn('https://github.com/Brunochris13', github_link.get_attribute('onclick'))
+
+        # Check if the Github link is working
+        github_link.click()
+        time.sleep(5)
+
+        # Change Tab
+        self.browser.switch_to.window(self.browser.window_handles[1])
+
+        # Check if the URL of the New Tab is correct
+        self.assertEqual('https://github.com/Brunochris13', self.browser.current_url)
+
+
+        # Check if the CV PDF link is correct
+
+        # Change Back to First Tab
+        self.browser.switch_to.window(self.browser.window_handles[0])
+
+        pdf_link = self.browser.find_element_by_class_name("fa-file-text")
+        print('PDF: ' + pdf_link.get_attribute('href'))
+        self.assertIn('Christos_Efstathiou_CV', pdf_link.get_attribute('href'))
+
 
 if __name__ == '__main__':  
     unittest.main(warnings='ignore')  
