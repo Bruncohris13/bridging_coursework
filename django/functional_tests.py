@@ -590,5 +590,72 @@ class MyTests(unittest.TestCase):
         self.assertNotIn('Test Skill Post [Edited]', skills_posts_prog_lang[-1].find_element_by_class_name("skill-text").text)
         self.assertNotIn('Test Skill Post [Edited]', skills_posts_languages[-1].find_element_by_class_name("skill-text").text)
 
+    def test_interests(self):
+        # Login as Admin
+        self.enableAdmin()
+
+        # Add New Interest Post
+        interests_title = self.browser.find_element_by_id('interests')
+        interests_new = interests_title.find_element_by_class_name("glyphicon-plus")
+        interests_new.click()
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/cv_post_new/Interest/", self.browser.current_url)
+
+        interest = self.browser.find_element_by_id("id_interest")
+        submit = self.browser.find_element_by_class_name("submit-text")
+
+        # Complete the Form
+        interest.send_keys("Test Interest Post")
+        submit.click()
+
+        time.sleep(1)
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
+
+        # Check if the new Post appears on the Home Page
+        interests_posts = self.browser.find_elements_by_class_name('interest-post')
+
+        self.assertIn('Test Interest Post', interests_posts[-1].find_element_by_class_name("interest-text").text)
+
+
+        # Edit the new Post  
+        interest_post_edit = interests_posts[-1].find_element_by_class_name("glyphicon-pencil")
+        interest_post_edit.click()
+
+        # Check if the url is correct
+        self.assertIn("http://localhost:8000/cv_post_edit/Interest/", self.browser.current_url)
+
+        interest = self.browser.find_element_by_id("id_interest")
+        submit = self.browser.find_element_by_class_name("submit-text")
+
+        # Edit the Form
+        interest.send_keys(" [Edited]")
+        submit.click()
+
+        time.sleep(1)
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
+
+        # Check if the Edited Post has been edited on the Home Page
+        interests_posts = self.browser.find_elements_by_class_name('interest-post')
+
+        self.assertIn('Test Interest Post [Edited]', interests_posts[-1].find_element_by_class_name("interest-text").text)
+
+        # Delete the new Post
+        interest_post_delete = interests_posts[-1].find_element_by_class_name("close")
+        interest_post_delete.click()
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/", self.browser.current_url)
+
+        # Check if the New Post has been removed on the Home Page
+        interests_posts = self.browser.find_elements_by_class_name('interest-post')
+
+        self.assertNotIn('Test Interest Post [Edited]', interests_posts[-1].find_element_by_class_name("interest-text").text)
+
+
 if __name__ == '__main__':  
     unittest.main(warnings='ignore')  
