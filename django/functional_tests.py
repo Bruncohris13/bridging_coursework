@@ -317,6 +317,71 @@ class MyTests(unittest.TestCase):
         self.assertNotIn('Test Achievement Post [Edited]', achievement_posts[-1].find_element_by_class_name("cv-post-title").text)
         self.assertNotIn('Text for Achievement Post [Edited]', achievement_posts[-1].text)
 
+    def test_qualifications(self):
+        # Login as Admin
+        self.enableAdmin()
+
+        # Add New Qualifications Post
+        qualifications_title = self.browser.find_element_by_id('qualifications')
+        qualifications_new = qualifications_title.find_element_by_class_name("glyphicon-plus")
+        qualifications_new.click()
+
+        # Check if the url is correct
+        self.assertEqual("http://localhost:8000/cv_post_new/Qualification/", self.browser.current_url)
+
+        title = self.browser.find_element_by_id("id_title")
+        text = self.browser.find_element_by_id("id_text")
+        submit = self.browser.find_element_by_class_name("submit-text")
+
+        # Complete the Form
+        title.send_keys("Test Qualification Post")
+        text.send_keys("Text for Qualification Post")
+        submit.click()
+
+        time.sleep(1)
+    
+        # Check if the new Post appears on the Home Page
+        qualification_posts = self.browser.find_elements_by_id("qualification-post")
+
+        self.assertIn('Test Qualification Post', qualification_posts[-1].find_element_by_class_name("cv-post-title").text)
+        self.assertIn('Text for Qualification Post', qualification_posts[-1].text)
+
+
+        # Edit the new Post
+        qualification_post_edit = qualification_posts[-1].find_element_by_class_name("glyphicon-pencil")
+        qualification_post_edit.click()
+
+        # Check if the url is correct
+        self.assertIn("http://localhost:8000/cv_post_edit/Qualification/", self.browser.current_url)
+
+        title = self.browser.find_element_by_id("id_title")
+        text = self.browser.find_element_by_id("id_text")
+        submit = self.browser.find_element_by_class_name("submit-text")
+
+        # Edit the Form
+        title.send_keys(" [Edited]")
+        text.send_keys(" [Edited]")
+        submit.click()
+
+        time.sleep(1)
+
+        # Check if the Edited Post has been edited on the Home Page
+        qualification_posts = self.browser.find_elements_by_id("qualification-post")
+
+        self.assertIn('Test Qualification Post [Edited]', qualification_posts[-1].find_element_by_class_name("cv-post-title").text)
+        self.assertIn('Text for Qualification Post [Edited]', qualification_posts[-1].text)
+
+
+        # Delete the new Post
+        qualification_post_delete = qualification_posts[-1].find_element_by_class_name("close")
+        qualification_post_delete.click()
+
+        # Check if the New Post has been removed on the Home Page
+        qualification_posts = self.browser.find_elements_by_id("qualification-post")
+
+        self.assertNotIn('Test Qualification Post [Edited]', qualification_posts[-1].find_element_by_class_name("cv-post-title").text)
+        self.assertNotIn('Text for Qualification Post [Edited]', qualification_posts[-1].text)
+
 
 if __name__ == '__main__':  
     unittest.main(warnings='ignore')  

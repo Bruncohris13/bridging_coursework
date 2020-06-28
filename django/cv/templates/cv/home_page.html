@@ -100,7 +100,7 @@
         {% endif %}
     </h1>
         {% for post in qualifications %}
-            <div class="cv-post">
+            <div class="cv-post" id="qualification-post">
                 <h2 class="cv-post-title">{{ post.title }}</h2>
                 <p class="cv-post-text">{{ post.formatted_markdown|safe }}</p>
                 {% if user.is_authenticated %}
