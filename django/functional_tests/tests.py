@@ -694,27 +694,39 @@ class MyTests(unittest.TestCase):
         self.assertIn('Text for Project Post', project_posts[-1].find_element_by_class_name("cv-post-text").text)
         self.assertIn("test_project.jpg", project_posts[-1].find_element_by_class_name("card-img-top").get_attribute('src'))
 
-        self.fail()
+        # Check if the Project link works
+        project_posts[-1].click()
+        time.sleep(5)
 
-        self.assertIn("https://www.google.com/", project_posts[-1])
+        # Change Tab
+        self.browser.switch_to.window(self.browser.window_handles[1])
+
+        # Check if the url is correct
+        self.assertIn("https://www.google.com/", self.browser.current_url)
+
+        # Go back to First Tab
+        self.browser.switch_to.window(self.browser.window_handles[0])
 
 
         # Edit the new Post
-        education_post_edit = project_posts[-1].find_element_by_class_name("glyphicon-pencil")
-        education_post_edit.click()
+        project_post_edit = project_posts[-1].find_element_by_class_name("glyphicon-pencil")
+        project_post_edit.click()
 
         # Check if the url is correct
-        self.assertIn("http://localhost:8000/cv_post_edit/Education/", self.browser.current_url)
+        self.assertIn("http://localhost:8000/cv_post_edit/Project/", self.browser.current_url)
 
         title = self.browser.find_element_by_id("id_title")
-        sub_title = self.browser.find_element_by_id("id_sub_title")
         text = self.browser.find_element_by_id("id_text")
+        image = self.browser.find_element_by_id("id_image")
+        url = self.browser.find_element_by_id("id_url")
         submit = self.browser.find_element_by_class_name("submit-text")
 
         # Edit the Form
         title.send_keys(" [Edited]")
-        sub_title.send_keys(" [Edited]")
         text.send_keys(" [Edited]")
+        image.send_keys(os.getcwd()+"\\test_project_Edited.jpg")
+        url.clear()
+        url.send_keys("https://www.youtube.com/")
         submit.click()
 
         time.sleep(1)
@@ -723,26 +735,39 @@ class MyTests(unittest.TestCase):
         self.assertEqual("http://localhost:8000/", self.browser.current_url)
 
         # Check if the Edited Post has been edited on the Home Page
-        education_posts = self.browser.find_elements_by_id("education-post")
+        project_posts = self.browser.find_elements_by_class_name("project-card")
 
-        self.assertIn('Test Education Post [Edited]', education_posts[-1].find_element_by_class_name("cv-post-title").text)
-        self.assertIn('Subtitle [Edited]', education_posts[-1].find_element_by_class_name("cv-post-sub-title").text)
-        self.assertIn('Text for Education Post [Edited]', education_posts[-1].text)
+        self.assertIn('Test Project Post [Edited]', project_posts[-1].find_element_by_class_name("cv-post-title").text)
+        self.assertIn('Text for Project Post [Edited]', project_posts[-1].find_element_by_class_name("cv-post-text").text)
+        self.assertIn("test_project_Edited.jpg", project_posts[-1].find_element_by_class_name("card-img-top").get_attribute('src'))
+
+        # Check if the Project link works
+        project_posts[-1].click()
+        time.sleep(5)
+
+        # Change Tab
+        self.browser.switch_to.window(self.browser.window_handles[1])
+
+        # Check if the url is correct
+        self.assertIn("https://www.youtube.com/", self.browser.current_url)
+
+        # Go back to First Tab
+        self.browser.switch_to.window(self.browser.window_handles[0])
 
 
         # Delete the new Post
-        education_post_delete = education_posts[-1].find_element_by_class_name("close")
+        education_post_delete = project_posts[-1].find_element_by_class_name("close")
         education_post_delete.click()
 
         # Check if the url is correct
         self.assertEqual("http://localhost:8000/", self.browser.current_url)
 
         # Check if the New Post has been removed on the Home Page
-        education_posts = self.browser.find_elements_by_id("education-post")
+        project_posts = self.browser.find_elements_by_class_name("project-card")
 
-        self.assertNotIn('Test Education Post [Edited]', education_posts[-1].find_element_by_class_name("cv-post-title").text)
-        self.assertNotIn('Subtitle [Edited]', education_posts[-1].find_element_by_class_name("cv-post-sub-title").text)
-        self.assertNotIn('Text for Education Post [Edited]', education_posts[-1].text)
+        self.assertNotIn('Test Project Post [Edited]', project_posts[-1].find_element_by_class_name("cv-post-title").text)
+        self.assertNotIn('Text for Project Post [Edited]', project_posts[-1].find_element_by_class_name("cv-post-text").text)
+        self.assertNotIn("test_project_Edited.jpg", project_posts[-1].find_element_by_class_name("card-img-top").get_attribute('src'))
 
     def test_add_activities(self):
         # Login as Admin
