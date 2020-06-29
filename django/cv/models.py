@@ -1,6 +1,8 @@
 from django.db import models
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
+from django.conf import settings
+import os
 
 class CvPdf(models.Model):
     cv_pdf = models.FileField(upload_to='cv/pdf/cv')
@@ -50,6 +52,9 @@ class ProjectPost(models.Model):
     text = models.TextField()
     image = models.ImageField(upload_to='cv/img/projects')
     url = models.URLField(max_length=300)
+
+    def removeImage(self):
+        os.remove(os.path.join(settings.MEDIA_ROOT, self.image.name))
 
 
 class AddActivitiesPost(models.Model):

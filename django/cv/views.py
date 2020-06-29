@@ -70,6 +70,8 @@ def cv_post_new(request, category):
 def cv_post_delete(request, category, pk):
     post = get_object_or_404(get_post_class(category), pk=pk)
     if request.method == "GET":
+        if (category == "Project"):
+            post.removeImage()
         post.delete()
     return redirect('home_page')
 
