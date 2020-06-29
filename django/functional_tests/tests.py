@@ -426,7 +426,7 @@ class MyTests(unittest.TestCase):
         skill_categories = {
             "Languages": "languages",
             "Programming Languages": "programming_languages",
-            "Programming Tools": "programming_tools",
+            "Other Programming Skills": "other_prog_skills",
         }
 
         # Add New Skill Post for everty category

@@ -36,7 +36,7 @@ class QualificationPost(CVPost):
 SKILL_CATEGORIES = (
     ('LANGUAGES', 'Languages'),
     ('PROGRAMMING_LANGUAGES', 'Programming Languages'),
-    ('PROGRAMMING_TOOLS', 'Programming Tools')
+    ('OTHER_PROGRAMMING_SKILLS', 'Other Programming Skills')
 )
 
 class SkillPost(models.Model):
