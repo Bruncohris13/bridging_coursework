@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.admin.views.decorators import staff_member_required
 from django.utils import timezone
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
@@ -31,6 +32,7 @@ def post_detail(request, pk):
 
     return render(request, 'blog/post_detail.html', context)
 
+@staff_member_required
 def comment_delete(request, pk, cm):
     if request.method == 'GET':
         post = get_object_or_404(Post, pk=pk)
@@ -38,6 +40,7 @@ def comment_delete(request, pk, cm):
         comment.delete()
     return redirect('post_detail', pk=pk)
 
+@staff_member_required
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -50,6 +53,7 @@ def post_new(request):
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
 
+@staff_member_required
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
