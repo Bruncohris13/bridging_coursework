@@ -1,5 +1,4 @@
 from django.db import models
-from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
 from django.conf import settings
 import os
@@ -16,6 +15,9 @@ class Bio(models.Model):
 class CVPost(models.Model):
     title = models.CharField(max_length=100)
     text = models.TextField(default="<p class='cv-post-text'> </p>")
+
+    def __str__(self):
+        return self.title
 
     def formatted_markdown(self):
         return markdownify(self.text)
@@ -43,8 +45,14 @@ class SkillPost(models.Model):
     skill = models.CharField(max_length=50)
     category = models.CharField(max_length=150, choices=SKILL_CATEGORIES, default='PROGRAMMING_LANGUAGES')
 
+    def __str__(self):
+        return self.skill
+
 class InterestPost(models.Model):
     interest = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.interest
 
 
 class ProjectPost(models.Model):
@@ -53,12 +61,18 @@ class ProjectPost(models.Model):
     image = models.ImageField(upload_to='cv/img/projects')
     url = models.URLField(max_length=300)
 
+    def __str__(self):
+        return self.title
+
     def removeImage(self):
         os.remove(os.path.join(settings.MEDIA_ROOT, self.image.name))
 
 
 class AddActivitiesPost(models.Model):
     text = models.TextField(default="<ul class='fa-ul cv-post-text'><li><i class='fa-li fa fa-users'></i> </li></ul>")
+
+    def __str__(self):
+        return self.text
 
     def formatted_markdown(self):
         return markdownify(self.text)
