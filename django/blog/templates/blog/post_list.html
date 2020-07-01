@@ -6,10 +6,7 @@
             <div onclick="location.href='{% url 'post_detail' pk=post.pk %}'" class="post post-hover">
                 <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
                 <p class="post-text">
-                    {{ post.text|slice:":400"}}
-                    {% if post.text|length > 400 %}
-                    ...
-                    {% endif %}
+                    {{ post.formatted_markdown|safe|slice:":500" }}{% if post.text|length > 500 %}...{% endif %}
                 </p>
                 <div class="post-date">
                     {{ post.published_date }}

@@ -49,3 +49,4 @@ db.sqlite3
 geckodriver.log
 virtualenv
 media
+secret.py

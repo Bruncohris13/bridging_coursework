@@ -1,0 +1,40 @@
+.navbar {
+    border-radius: 0px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+.nav-link {
+    font-size: 24px;
+}
+
+.navbar-brand {
+    font-size: 4em;
+}
+
+.navbar-nav a {
+    padding: 0;
+    margin: 0;
+    vertical-align: bottom;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.submit-text {
+    font-size: 14px;
+}
+
+.form-control,
+.post-form,
+.cv-form {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.form-body {
+    max-height: 110px;
+}
