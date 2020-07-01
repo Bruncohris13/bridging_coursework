@@ -30,6 +30,10 @@ h2 {
     color: black;
 }
 
+.post h2 a:hover {
+    text-decoration: none;
+}
+
 .comment-title {
     font-size: 16px;
 }
