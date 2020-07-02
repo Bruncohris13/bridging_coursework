@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils import timezone
-from .models import Post, Comment
-from .forms import PostForm, CommentForm
+from .models import *
+from .forms import *
 
 # Create your views here.
 def post_list(request):
@@ -69,7 +69,20 @@ def post_edit(request, pk):
 @staff_member_required
 def comment_delete(request, pk, cm):
     if request.method == 'GET':
-        post = get_object_or_404(Post, pk=pk)
         comment = get_object_or_404(Comment, pk=cm, post=pk)
         comment.delete()
     return redirect('post_detail', pk=pk)
+
+@staff_member_required
+def comment_edit(request, pk, cm):
+    post = get_object_or_404(Post, pk=pk)
+    comment = get_object_or_404(Comment, pk=cm, post=pk)
+    if request.method == "POST":
+        form = CommentModelForm(request.POST, instance=comment)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.save()
+            return redirect('post_detail', pk=pk)
+    else:
+        form = CommentModelForm(instance=comment)
+    return render(request, 'blog/post_edit.html', {'form': form})

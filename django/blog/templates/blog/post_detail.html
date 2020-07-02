@@ -41,14 +41,23 @@
         <b>{{ comment.author }}</b> wrote:
 
         {% if user.is_authenticated %}
-            <a href="{% url 'comment_delete' pk=post.pk cm=comment.pk %}" class="close" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </a>
+            <a href="{% url 'comment_delete' pk=post.pk cm=comment.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+            <a class="btn btn-default" href="{% url 'comment_edit' pk=post.pk cm=comment.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% endif %}
     </p>
     <p class="comment-text">{{ comment.body }}</p>
     <hr>
     {% endfor %}
+
+    <br>
+
+    <h3>Important Information:</h3>
+    <hr>
+    <p class="post-text">
+        You cannot <Strong>Edit</strong> or <strong>Delete</strong> Comments, yet. So if you want to edit or delete your Comment please 
+        <a href="mailto:cefstathiou13@gmail.com?subject=Edit/Delete Comment in '{{ post.title }}'">email</a>
+        me.
+     </p>
 
     <script>
     if ( window.history.replaceState ) {
