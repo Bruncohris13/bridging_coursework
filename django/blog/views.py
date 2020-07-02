@@ -33,12 +33,11 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', context)
 
 @staff_member_required
-def comment_delete(request, pk, cm):
-    if request.method == 'GET':
-        post = get_object_or_404(Post, pk=pk)
-        comment = get_object_or_404(Comment, pk=cm, post=pk)
-        comment.delete()
-    return redirect('post_detail', pk=pk)
+def post_delete(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "GET":
+        post.delete()
+    return redirect('post_list')
 
 @staff_member_required
 def post_new(request):
@@ -66,3 +65,11 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+@staff_member_required
+def comment_delete(request, pk, cm):
+    if request.method == 'GET':
+        post = get_object_or_404(Post, pk=pk)
+        comment = get_object_or_404(Comment, pk=cm, post=pk)
+        comment.delete()
+    return redirect('post_detail', pk=pk)

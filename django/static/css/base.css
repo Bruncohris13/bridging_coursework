@@ -24,6 +24,16 @@ h3 {
     margin-bottom: 0px;
 }
 
+.submit-btn {
+    background-color: #0275d8;
+    color: white;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+    color: white;
+}
+
 .submit-text {
     font-size: 14px;
 }
