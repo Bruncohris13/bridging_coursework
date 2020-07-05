@@ -7,10 +7,10 @@ class CvPdfForm(forms.ModelForm):
         fields = ('cv_pdf',)
 
 
-class BioForm(forms.ModelForm):
+class QuoteForm(forms.ModelForm):
     class Meta:
-        model = Bio
-        fields = ('text', 'image')
+        model = Quote
+        fields = ('text',)
 
 
 class CVPostForm(forms.ModelForm):

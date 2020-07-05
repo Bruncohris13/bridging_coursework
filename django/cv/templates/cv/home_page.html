@@ -8,13 +8,11 @@
             <div class="col-sm-3 d-none d-sm-block"></div>
 
             <div class="col-sm-6">
-                <div class="bio-box" id="bio">
-                    <img class="profile-pic" src="{{ bio.first.image.url }}">
-                    <div class="bio-text-container">
-                        <p class="bio-text">{{ bio.first.text }}</p>
-                    </div>
+                <div class="quote-box">
+                    <p class="quote-text">{{ quote.first.text }}</p>
+                    {% comment %} <div class="quote-box-blur"></div> {% endcomment %}
                     {% if user.is_authenticated %}
-                        <a class="btn btn-default" href="{% url 'bio_edit' %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a class="btn btn-default" href="{% url 'quote_edit' %}"><span class="glyphicon glyphicon-pencil"></span></a>
                     {% endif %}
                 </div>
             </div>
