@@ -8,13 +8,11 @@
             <div class="col-sm-3 d-none d-sm-block"></div>
 
             <div class="col-sm-6">
-                <div class="bio-box" id="bio">
-                    <img class="profile-pic" src="{{ bio.first.image.url }}">
-                    <div class="bio-text-container">
-                        <p class="bio-text">{{ bio.first.text }}</p>
-                    </div>
+                <div class="quote-box">
+                    <p class="quote-text">{{ quote.first.text }}</p>
+                    {% comment %} <div class="quote-box-blur"></div> {% endcomment %}
                     {% if user.is_authenticated %}
-                        <a class="btn btn-default" href="{% url 'bio_edit' %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a class="btn btn-default" href="{% url 'quote_edit' %}"><span class="glyphicon glyphicon-pencil"></span></a>
                     {% endif %}
                 </div>
             </div>
@@ -179,9 +177,9 @@
             <a class="btn btn-default" href="{% url 'cv_post_new' category='Project' %}"><span class="glyphicon glyphicon-plus"></span></a>
         {% endif %}
     </h1>
-        <div class="row projects-container">
+        <div class="card-columns projects-container">
             {% for post in projects %}
-                <div class="col-6 col-md-4 mt-4 mb-4 project-card-col">
+                <div class="project-card-col">
                     <div class="card project-card" onclick="window.open('{{ post.url }}', '_blank')">
                         <img class="card-img-top" src="{{ post.image.url }}">
                         <div class="card-body project-card-body">

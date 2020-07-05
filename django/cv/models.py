@@ -7,9 +7,8 @@ class CvPdf(models.Model):
     cv_pdf = models.FileField(upload_to='cv/pdf/cv')
 
 
-class Bio(models.Model):
+class Quote(models.Model):
     text = models.TextField()
-    image = models.ImageField(upload_to='cv/img/profile')
 
 
 class CVPost(models.Model):
