@@ -6,13 +6,13 @@ import os
 class CvPdf(models.Model):
     cv_pdf = models.FileField(upload_to='cv/pdf/cv')
 
-    def save(self, *args, **kwargs):
-        try:
-            this = CvPdf.objects.get(id=self.id)
-            if this.cv_pdf != self.cv_pdf:
-                this.cv_pdf.delete()
-        except: pass
-        super(CvPdf, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     try:
+    #         this = CvPdf.objects.get(id=self.id)
+    #         if this.cv_pdf != self.cv_pdf:
+    #             this.cv_pdf.delete()
+    #     except: pass
+    #     super(CvPdf, self).save(*args, **kwargs)
 
 class Quote(models.Model):
     text = models.TextField()
@@ -73,13 +73,13 @@ class ProjectPost(models.Model):
     def removeImage(self):
         os.remove(os.path.join(settings.MEDIA_ROOT, self.image.name))
     
-    def save(self, *args, **kwargs):
-        try:
-            this = ProjectPost.objects.get(id=self.id)
-            if this.image != self.image:
-                this.image.delete()
-        except: pass
-        super(ProjectPost, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     try:
+    #         this = ProjectPost.objects.get(id=self.id)
+    #         if this.image != self.image:
+    #             this.image.delete()
+    #     except: pass
+    #     super(ProjectPost, self).save(*args, **kwargs)
 
 
 class AddActivitiesPost(models.Model):
