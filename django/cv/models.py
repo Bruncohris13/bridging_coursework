@@ -72,6 +72,14 @@ class ProjectPost(models.Model):
 
     def removeImage(self):
         os.remove(os.path.join(settings.MEDIA_ROOT, self.image.name))
+    
+    def save(self, *args, **kwargs):
+        try:
+            this = ProjectPost.objects.get(id=self.id)
+            if this.image != self.image:
+                this.image.delete()
+        except: pass
+        super(ProjectPost, self).save(*args, **kwargs)
 
 
 class AddActivitiesPost(models.Model):
