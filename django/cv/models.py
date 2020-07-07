@@ -6,6 +6,13 @@ import os
 class CvPdf(models.Model):
     cv_pdf = models.FileField(upload_to='cv/pdf/cv')
 
+    def save(self, *args, **kwargs):
+        try:
+            this = CvPdf.objects.get(id=self.id)
+            if this.cv_pdf != self.cv_pdf:
+                this.cv_pdf.delete()
+        except: pass
+        super(CvPdf, self).save(*args, **kwargs)
 
 class Quote(models.Model):
     text = models.TextField()
