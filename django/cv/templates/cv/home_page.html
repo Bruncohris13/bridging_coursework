@@ -186,8 +186,10 @@
                             <h2 class="cv-post-title">{{ post.title }}</h2>
                             <p class="cv-post-text" style="word-wrap: break-word;">{{ post.text|linebreaksbr }}</p>
                             {% if user.is_authenticated %}
-                                <a class="btn btn-default" href="{% url 'cv_post_edit' category='Project' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-                                <a href="{% url 'cv_post_delete' category='Project' pk=post.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                                <div onclick="event.stopPropagation();">
+                                    <a class="btn btn-default" href="{% url 'cv_post_edit' category='Project' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                                    <a href="{% url 'cv_post_delete' category='Project' pk=post.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                                </div>
                             {% endif %}
                         </div>
                     </div>
