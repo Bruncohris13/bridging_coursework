@@ -729,7 +729,7 @@ class MyTests(unittest.TestCase):
         url.send_keys("https://www.youtube.com/")
         submit.click()
 
-        time.sleep(1)
+        time.sleep(5)
 
         # Check if the url is correct
         self.assertEqual("http://localhost:8000/", self.browser.current_url)
