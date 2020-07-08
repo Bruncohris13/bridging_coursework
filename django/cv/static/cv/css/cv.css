@@ -34,7 +34,6 @@
 
 #scrollspy {
     display: block;
-    /* padding-left: 0; */
 }
 
 #scrollspy .nav-link {
@@ -106,8 +105,6 @@
 }
 
 .project-card {
-    /* padding-bottom: 0;
-    margin-bottom: 0; */
     box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
     border: solid 1px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
