@@ -9,7 +9,7 @@
 
 @media (max-width: 768px) {
     .bio-background {
-        background-position-x: right;
+        background-position-x: 75%;
     }
 }
 
