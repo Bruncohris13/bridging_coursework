@@ -7,6 +7,12 @@
     width: 100%;
 }
 
+@media (max-width: 768px) {
+    .bio-background {
+        background-position-x: right;
+    }
+}
+
 .bio-box {
     background-color: rgba(25, 25, 25, 0.5);
     border-radius: 10px;
