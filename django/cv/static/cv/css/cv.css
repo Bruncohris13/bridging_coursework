@@ -8,7 +8,7 @@
 }
 
 .bio-box {
-    background-color: rgba(35, 35, 35, 0.5);
+    background-color: rgba(25, 25, 25, 0.5);
     border-radius: 10px;
     margin: 0;
     padding: 0;
@@ -26,7 +26,7 @@
 
 .bio-title,
 .bio-text {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgb(255, 255, 255);
     padding: 0;
     margin: 0;
 }
@@ -53,6 +53,13 @@
 
 #scrollspy .nav-link {
     font-size: 24px;
+    color: #292b2c;
+}
+
+#scrollspy a.nav-link:hover,
+#scrollspy a.nav-item.active {
+    color: white;
+    background-color: #292b2c;
 }
 
 .cv-post,
@@ -125,10 +132,16 @@
     border-radius: 5px;
     cursor: pointer;
     transition: box-shadow 0.2s ease-in-out;
+    padding: 0;
+    margin: 0;
 }
 
 .project-card:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.project-card-img {
+    border-radius: 4px 4px 0 0;
 }
 
 .project-card-body {
@@ -181,6 +194,7 @@
 
 .fa-users,
 .fa-graduation-cap {
+    color: #292b2c;
     font-size: 20px;
     margin: 0;
     padding: 0;
