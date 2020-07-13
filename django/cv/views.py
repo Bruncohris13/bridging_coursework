@@ -5,7 +5,7 @@ from .models import *
 
 # Create your views here.
 def home_page(request):
-    quote = Quote.objects.all()
+    bio = Bio.objects.all()
     education = EducationPost.objects.all()
     work = WorkPost.objects.all()
     achievements = AchievementPost.objects.all()
@@ -17,7 +17,7 @@ def home_page(request):
     cv_pdf = CvPdf.objects.all()
 
     return render(request, 'cv/home_page.html', {
-        'quote': quote,
+        'bio': bio,
         'education': education,
         'work': work,
         'achievements': achievements,
@@ -30,16 +30,16 @@ def home_page(request):
     })
 
 @staff_member_required
-def quote_edit(request):
-    quote = Quote.objects.first()
+def bio_edit(request):
+    bio = Bio.objects.first()
     if request.method == 'POST':
-        form = QuoteForm(request.POST, instance=quote)
+        form = BioForm(request.POST, instance=bio)
         if form.is_valid():
-            quote = form.save(commit=False)
-            quote.save()
+            bio = form.save(commit=False)
+            bio.save()
             return redirect('home_page')
     else:
-        form = QuoteForm(instance=quote)
+        form = BioForm(instance=bio)
     return render(request, 'cv/cv_post_edit.html', {
         'form': form
     })

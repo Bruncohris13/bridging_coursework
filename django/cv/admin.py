@@ -3,7 +3,7 @@ from .models import *
 
 # Register your models here.
 admin.site.register(CvPdf)
-admin.site.register(Quote)
+admin.site.register(Bio)
 admin.site.register(CVPost)
 admin.site.register(EducationPost)
 admin.site.register(WorkPost)

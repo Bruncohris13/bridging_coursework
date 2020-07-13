@@ -7,23 +7,36 @@
     width: 100%;
 }
 
-.quote-box {
-    background-color: rgba(45, 45, 45, 0.3);
+.bio-box {
+    background-color: rgba(35, 35, 35, 0.5);
     border-radius: 10px;
     margin: 0;
     padding: 0;
     position: relative;
     top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 100%; */
+    height: fit-content;
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
+    text-align: justify;
+    padding: 4px 8px;
 }
 
-.quote-text {
-    padding: 4px 8px;
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.70);
+.bio-title,
+.bio-text {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0;
+    margin: 0;
+}
+
+.bio-title {
+    font-size: 32px;
+}
+
+.bio-text {
+    font-size: 20px;
 }
 
 .div-scrollspy {
