@@ -14,7 +14,8 @@ class CvPdf(models.Model):
         except: pass
         super(CvPdf, self).save(*args, **kwargs)
 
-class Quote(models.Model):
+class Bio(models.Model):
+    title = models.CharField(max_length=50)
     text = models.TextField()
 
 

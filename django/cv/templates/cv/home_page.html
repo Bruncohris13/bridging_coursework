@@ -5,19 +5,19 @@
 {% block bio %}
     <div style="background-image: url({% static 'cv/img/background.jpg' %});" class="bio-background container-fluid">
         <div class="row" style="height: 100%">
-            <div class="col-sm-3 d-none d-sm-block"></div>
+            {% comment %} <div class="col-sm-3 d-none d-sm-block"></div> {% endcomment %}
 
-            <div class="col-sm-6">
-                <div class="quote-box">
-                    <p class="quote-text">{{ quote.first.text }}</p>
-                    {% comment %} <div class="quote-box-blur"></div> {% endcomment %}
+            {% comment %} <div class="col-sm-6"> {% endcomment %}
+                <div class="bio-box">
+                    <p class="bio-title">{{ bio.first.title }}</p>
+                    <p class="bio-text">{{ bio.first.text }}</p>
                     {% if user.is_authenticated %}
-                        <a class="btn btn-default" href="{% url 'quote_edit' %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a class="btn btn-default" href="{% url 'bio_edit' %}"><span class="glyphicon glyphicon-pencil"></span></a>
                     {% endif %}
                 </div>
-            </div>
+            {% comment %} </div> {% endcomment %}
 
-            <div class="col-sm-3 d-none d-sm-block"></div>
+            {% comment %} <div class="col-sm-3 d-none d-sm-block"></div> {% endcomment %}
         </div>    
     </div>
 {% endblock %}
