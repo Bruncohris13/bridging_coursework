@@ -65,8 +65,7 @@
 .cv-post,
 .skills-container,
 .interests-container,
-.projects-container,
-.contact-container {
+.projects-container {
     margin-left: 5%;
 }
 
@@ -151,6 +150,7 @@
 
 .contact-container {
     margin-top: 2%;
+    text-align: center;
 }
 
 .fa {
