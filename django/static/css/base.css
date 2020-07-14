@@ -1,14 +1,14 @@
-.navbar {
+#top-navbar {
     border-radius: 0;
     margin-bottom: 0;
     margin: 0;
     padding: 0 5px;
-    min-height: 50px;
+    height: 50px;
 }
 
-.navbar-toggler {
-    border-style: none;
-    font-size: 18px;
+#top-navbar-nav {
+    margin: 0;
+    margin-right: 10px;
 }
 
 h3 {
@@ -17,17 +17,6 @@ h3 {
 
 .nav-link {
     font-size: 24px;
-}
-
-.navbar-brand {
-    padding: 0;
-    margin: 0;
-    font-size: 38px;
-}
-
-.navbar-nav a {
-    padding: 0;
-    margin: 0;
 }
 
 .submit-btn {
