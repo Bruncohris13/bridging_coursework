@@ -5,9 +5,7 @@
 {% block bio %}
     <div style="background-image: url({% static 'cv/img/background.jpg' %});" class="bio-background container-fluid">
         <div class="row" style="height: 100%">
-            {% comment %} <div class="col-sm-3 d-none d-sm-block"></div> {% endcomment %}
 
-            {% comment %} <div class="col-sm-6"> {% endcomment %}
                 <div class="bio-box">
                     <p class="bio-title">{{ bio.first.title }}</p>
                     <p class="bio-text">{{ bio.first.text }}</p>
@@ -15,9 +13,7 @@
                         <a class="btn btn-default" href="{% url 'bio_edit' %}"><span class="glyphicon glyphicon-pencil"></span></a>
                     {% endif %}
                 </div>
-            {% comment %} </div> {% endcomment %}
 
-            {% comment %} <div class="col-sm-3 d-none d-sm-block"></div> {% endcomment %}
         </div>    
     </div>
 {% endblock %}

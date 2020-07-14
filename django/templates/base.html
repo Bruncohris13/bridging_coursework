@@ -26,19 +26,11 @@
 
 <body class= "div-scrollspy" data-spy="scroll" data-target="#scrollspy" data-offset="5">
 
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+    <nav class="navbar navbar-expand bg-dark navbar-dark justify-content-end" id="top-navbar">
 
-        <a href="/" class="navbar-brand display-4">Christos Efstathiou</a>
-
-        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-            <span class="navbar-toggler-icon"></span>
-        </button>  
-
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav display-4 ml-auto" style="text-align: right;">
+        <div class="navbar-nav display-4" id="top-navbar-nav">
                 {% block navbar%}
                 {% endblock %}
-            </div>
         </div>
         
     </nav>
