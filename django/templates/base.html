@@ -48,17 +48,18 @@
     
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-2 d-none d-md-block"></div>
+            <div class="scrollspy-container col-sm-2 d-none d-md-block">
+                {% block scrollspy %}
+                {% endblock %}
+            </div>
+            
 
             <div class="middle-container col-sm-8">
                 {% block content %}
                 {% endblock %}
             </div>
             
-            <div class="scrollspy-container col-sm-2 d-none d-md-block">
-                {% block scrollspy %}
-                {% endblock %}
-            </div>
+            <div class="col-sm-2 d-none d-md-block"></div>
         </div>
     </div>
 
