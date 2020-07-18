@@ -44,16 +44,6 @@ class MyTests(unittest.TestCase):
         # Check if the title is correct
         self.assertIn('Christos Efstathiou', self.browser.title)
 
-        navbar_brand = self.browser.find_element_by_class_name("navbar-brand")
-
-        # Check if the Brand Title in the navbar is correct
-        navbar_brand_text = navbar_brand.text
-        self.assertIn('Christos Efstathiou', navbar_brand_text)
-
-        # Check if the Brand Title link in the navbar is working
-        navbar_brand.click()
-        self.assertEqual('http://localhost:8000/', self.browser.current_url)
-
         navbar_links = self.browser.find_elements_by_class_name("nav-link")
         navbar_links_text = get_text_attribute(navbar_links)
 
@@ -63,12 +53,14 @@ class MyTests(unittest.TestCase):
 
         # Check if the Home link works
         navbar_links[navbar_links_text.index('Home')].click()
+        time.sleep(1)
         self.assertEqual('http://localhost:8000/', self.browser.current_url)
 
         navbar_links = self.browser.find_elements_by_class_name("nav-link")
 
         # Check if the Blog link works
         navbar_links[navbar_links_text.index('Blog')].click()
+        time.sleep(1)
         self.assertEqual('http://localhost:8000/blog/', self.browser.current_url)
     
     def test_scrollspy(self):
