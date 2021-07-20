@@ -118,7 +118,13 @@ h1.display-3 {
     margin: 0;
 }
 
-@media (min-width: 0) {
+@media (min-width: 0px) {
+    .card-columns {
+        column-count: 1;
+    }
+}
+
+@media (min-width: 425px) {
     .card-columns {
         column-count: 2;
     }
