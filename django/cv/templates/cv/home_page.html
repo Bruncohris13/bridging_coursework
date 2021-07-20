@@ -40,7 +40,7 @@
             <a class="btn btn-default" href="{% url 'cv_post_new' category='Education' %}"><span class="glyphicon glyphicon-plus"></span></a>
         {% endif %}
     </h1>  
-        {% for post in education %}
+        {% for post in education reversed %}
             <div class="cv-post" id="education-post">
                 <h2 class="cv-post-title">{{ post.title }}</h2>
                 <h3 class="cv-post-sub-title">{{ post.sub_title }}</h3>
@@ -58,7 +58,7 @@
             <a class="btn btn-default" href="{% url 'cv_post_new' category='Work' %}"><span class="glyphicon glyphicon-plus"></span></a>
         {% endif %}
     </h1>  
-        {% for post in work %}
+        {% for post in work reversed %}
             <div class="cv-post" id="work-post">
                 <h2 class="cv-post-title">{{ post.title }}</h2>
                 <h3 class="cv-post-sub-title">{{ post.sub_title }}</h3>
