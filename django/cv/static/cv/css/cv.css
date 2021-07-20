@@ -142,6 +142,7 @@ h1.display-3 {
 .interest-post:focus {
     box-shadow: 0 0.5em 0.5em -0.4em;
     transform: translateY(-0.25em) scale(1.04);
+    cursor: default;
 }
 
 .skill-text,
