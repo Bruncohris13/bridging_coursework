@@ -8,7 +8,7 @@
 
                 <div class="bio-box">
                     <p class="bio-title">{{ bio.first.title }}</p>
-                    <p class="bio-text">{{ bio.first.text }}</p>
+                    <p class="bio-text">{{ bio.first.formatted_markdown|safe }}</p>
                     {% if user.is_authenticated %}
                         <a class="btn btn-default" href="{% url 'bio_edit' %}"><span class="glyphicon glyphicon-pencil"></span></a>
                     {% endif %}

@@ -18,6 +18,9 @@ class Bio(models.Model):
     title = models.CharField(max_length=50)
     text = models.TextField()
 
+    def formatted_markdown(self):
+        return markdownify(self.text)
+
 
 class CVPost(models.Model):
     title = models.CharField(max_length=100)
