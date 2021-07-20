@@ -178,13 +178,14 @@ h1.display-3 {
     border: solid 1px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     cursor: pointer;
-    transition: box-shadow 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
     padding: 0;
     margin: 0;
 }
 
 .project-card:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
 }
 
 .project-card-img {
