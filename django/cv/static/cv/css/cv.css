@@ -128,11 +128,20 @@ h1.display-3 {
 .interest-post {
     display: inline-block;
     vertical-align: middle;
-    padding: 1px 4px;
-    border: 0.5px solid rgb(115, 115, 115);
+    padding: 1px 6px;
+    border: 0.05px solid rgb(115, 115, 115);
     border-radius: 8px;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
     margin: 5px;
+    transition: all 0.1s ease 0s;
+}
+
+.skill-post:hover,
+.skill-post:focus,
+.interest-post:hover,
+.interest-post:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em;
+    transform: translateY(-0.25em);
 }
 
 .skill-text,
