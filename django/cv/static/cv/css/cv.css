@@ -73,7 +73,7 @@
     top: 0;
     width: 0px;
     position: absolute;
-    transition: all 0.3s ease 0s;
+    transition: all 0.15s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     z-index: -1;
     background-color: #292b2c;
