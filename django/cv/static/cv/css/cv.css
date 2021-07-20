@@ -56,14 +56,37 @@
 }
 
 #scrollspy .nav-link {
+    position: relative;
     font-size: 24px;
     color: #292b2c;
 }
 
-#scrollspy a.nav-link:hover,
+#scrollspy a:hover {
+    color: white;
+    border-left: 10px solid #292b2c;
+}
+
+#scrollspy a:after {
+    content: "";
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 0px;
+    position: absolute;
+    transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    z-index: -1;
+    background-color: #292b2c;
+}
+
+#scrollspy a:hover:after {
+    width: 100%;
+}
+
 #scrollspy a.nav-item.active {
     color: white;
     background-color: #292b2c;
+    border-left: 10px solid #292b2c;
 }
 
 h1.display-3 {
