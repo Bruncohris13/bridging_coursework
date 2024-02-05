@@ -1,4 +1,4 @@
-Django
+Django==4.1.13
 django-markdownx
 Markdown
 selenium
