@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'markdownx',
     'blog.apps.BlogConfig',
     'cv',
+    'ordered_model'
 ]
 
 MIDDLEWARE = [
@@ -107,9 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-gb'
 
-TIME_ZONE = 'Europe/Athens'
+TIME_ZONE = 'Europe/London'
 
 USE_I18N = True
 
@@ -132,3 +133,6 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
+
+# Default Primary Key
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 

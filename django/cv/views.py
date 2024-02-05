@@ -8,6 +8,7 @@ def home_page(request):
     bio = Bio.objects.all()
     education = EducationPost.objects.all()
     work = WorkPost.objects.all()
+    profEngagements = ProfessionalEngagementsPost.objects.all()
     achievements = AchievementPost.objects.all()
     qualifications = QualificationPost.objects.all()
     skills = SkillPost.objects.all()
@@ -20,6 +21,7 @@ def home_page(request):
         'bio': bio,
         'education': education,
         'work': work,
+        'profEngagements': profEngagements,
         'achievements': achievements,
         'qualifications': qualifications,
         'skills': skills,
@@ -84,6 +86,7 @@ def get_form_class(category):
     switcher = {
         'Education' : EducationPostForm,
         'Work' : WorkPostForm,
+        'ProfEngagements' : ProfessionalEngagementsPostForm,
         'Achievement' : AchievementPostForm,
         'Qualification' : QualificationPostForm,
         'Skill' : SkillPostForm,
@@ -97,6 +100,7 @@ def get_post_class(category):
     switcher = {
         'Education' : EducationPost,
         'Work' : WorkPost,
+        'ProfEngagements' : ProfessionalEngagementsPost,
         'Achievement' : AchievementPost,
         'Qualification' : QualificationPost,
         'Skill' : SkillPost,

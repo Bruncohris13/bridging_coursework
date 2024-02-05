@@ -23,6 +23,7 @@
         <nav class="navbar display-4 nav nav-pills sticky-top" id="scrollspy">
             <a class="nav-item nav-link" href="#work">Work Experience</a>
             <a class="nav-item nav-link" href="#education">Education</a>
+            <a class="nav-item nav-link" href="#profEngagements">Professional Engagements</a>
             <a class="nav-item nav-link" href="#achievements">Achievements</a>
             <a class="nav-item nav-link" href="#qualifications">Qualifications</a>
             <a class="nav-item nav-link" href="#skills">Skills</a>
@@ -66,6 +67,23 @@
                 {% if user.is_authenticated %}
                     <a class="btn btn-default" href="{% url 'cv_post_edit' category='Education' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
                     <a href="{% url 'cv_post_delete' category='Education' pk=post.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                {% endif %}
+                <hr>
+            </div>
+        {% endfor %}
+
+    <h1 id="profEngagements" class="display-3">Professional Engagements
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'cv_post_new' category='ProfEngagements' %}"><span class="glyphicon glyphicon-plus"></span></a>
+        {% endif %}
+    </h1>
+        {% for post in profEngagements %}
+            <div class="cv-post" id="profEngagement-post">
+                <h2 class="cv-post-title">{{ post.title }}</h2>
+                <p class="cv-post-text">{{ post.formatted_markdown|safe }}</p>
+                {% if user.is_authenticated %}
+                    <a class="btn btn-default" href="{% url 'cv_post_edit' category='ProfEngagements' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="{% url 'cv_post_delete' category='ProfEngagements' pk=post.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
                 {% endif %}
                 <hr>
             </div>

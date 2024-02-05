@@ -1,6 +1,7 @@
 from django.db import models
 from markdownx.utils import markdownify
 from django.conf import settings
+from ordered_model.models import OrderedModel
 import os
 
 class CvPdf(models.Model):
@@ -22,7 +23,7 @@ class Bio(models.Model):
         return markdownify(self.text)
 
 
-class CVPost(models.Model):
+class CVPost(OrderedModel):
     title = models.CharField(max_length=100)
     text = models.TextField(default="<p class='cv-post-text'> </p>")
 
@@ -34,6 +35,9 @@ class CVPost(models.Model):
 
 class EducationPost(CVPost):
     sub_title = models.CharField(max_length=100)
+
+class ProfessionalEngagementsPost(CVPost):
+    pass
 
 class WorkPost(CVPost):
     sub_title = models.CharField(max_length=100)
@@ -51,21 +55,21 @@ SKILL_CATEGORIES = (
     ('OTHER_PROGRAMMING_SKILLS', 'Other Programming Skills')
 )
 
-class SkillPost(models.Model):
+class SkillPost(OrderedModel):
     skill = models.CharField(max_length=50)
     category = models.CharField(max_length=150, choices=SKILL_CATEGORIES, default='PROGRAMMING_LANGUAGES')
 
     def __str__(self):
         return self.skill
 
-class InterestPost(models.Model):
+class InterestPost(OrderedModel):
     interest = models.CharField(max_length=50)
 
     def __str__(self):
         return self.interest
 
 
-class ProjectPost(models.Model):
+class ProjectPost(OrderedModel):
     title = models.CharField(max_length=100)
     text = models.TextField()
     image = models.ImageField(upload_to='cv/img/projects')
@@ -86,7 +90,7 @@ class ProjectPost(models.Model):
         super(ProjectPost, self).save(*args, **kwargs)
 
 
-class AddActivitiesPost(models.Model):
+class AddActivitiesPost(OrderedModel):
     text = models.TextField(default="<ul class='fa-ul cv-post-text'><li><i class='fa-li fa fa-users'></i> </li></ul>")
 
     def __str__(self):
