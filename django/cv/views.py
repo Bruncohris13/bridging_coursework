@@ -9,6 +9,7 @@ def home_page(request):
     education = EducationPost.objects.all()
     work = WorkPost.objects.all()
     profEngagements = ProfessionalEngagementsPost.objects.all()
+    workProjects = WorkProjectPost.objects.all()
     achievements = AchievementPost.objects.all()
     qualifications = QualificationPost.objects.all()
     skills = SkillPost.objects.all()
@@ -22,6 +23,7 @@ def home_page(request):
         'education': education,
         'work': work,
         'profEngagements': profEngagements,
+        'workProjects' : workProjects,
         'achievements': achievements,
         'qualifications': qualifications,
         'skills': skills,
@@ -87,6 +89,7 @@ def get_form_class(category):
         'Education' : EducationPostForm,
         'Work' : WorkPostForm,
         'ProfEngagements' : ProfessionalEngagementsPostForm,
+        'WorkProject' : WorkProjectPostForm,
         'Achievement' : AchievementPostForm,
         'Qualification' : QualificationPostForm,
         'Skill' : SkillPostForm,
@@ -101,6 +104,7 @@ def get_post_class(category):
         'Education' : EducationPost,
         'Work' : WorkPost,
         'ProfEngagements' : ProfessionalEngagementsPost,
+        'WorkProject' : WorkProjectPost,
         'Achievement' : AchievementPost,
         'Qualification' : QualificationPost,
         'Skill' : SkillPost,

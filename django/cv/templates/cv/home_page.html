@@ -22,6 +22,7 @@
     <div style="height: 100%;">
         <nav class="navbar display-4 nav nav-pills sticky-top" id="scrollspy">
             <a class="nav-item nav-link" href="#work">Work Experience</a>
+            <a class="nav-item nav-link" href="#workProjects">Work Projects</a>
             <a class="nav-item nav-link" href="#education">Education</a>
             <a class="nav-item nav-link" href="#profEngagements">Professional Engagements</a>
             <a class="nav-item nav-link" href="#achievements">Achievements</a>
@@ -49,6 +50,24 @@
                 {% if user.is_authenticated %}
                     <a class="btn btn-default" href="{% url 'cv_post_edit' category='Work' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
                     <a href="{% url 'cv_post_delete' category='Work' pk=post.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                {% endif %}
+                <hr>
+            </div>
+        {% endfor %}
+
+    <h1 id="workProjects" class="display-3">Work Projects
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'cv_post_new' category='WorkProject' %}"><span class="glyphicon glyphicon-plus"></span></a>
+        {% endif %}
+    </h1>
+        {% for post in workProjects %}
+            <div class="cv-post" id="work-project-post">
+                <h2 class="cv-post-title">{{ post.title }}</h2>
+                <h3 class="cv-post-sub-title">{{ post.sub_title }}</h3>
+                <p class="cv-post-text">{{ post.formatted_markdown|safe }}</p>
+                {% if user.is_authenticated %}
+                    <a class="btn btn-default" href="{% url 'cv_post_edit' category='WorkProject' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="{% url 'cv_post_delete' category='WorkProject' pk=post.pk %}" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
                 {% endif %}
                 <hr>
             </div>

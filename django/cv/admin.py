@@ -17,10 +17,10 @@ class ProjectPostOrderedAdmin(OrderedModelAdmin):
 # Register your models here.
 admin.site.register(CvPdf)
 admin.site.register(Bio)
-#admin.site.register(CVPost, CVPostOrderedAdmin)
 admin.site.register(EducationPost, CVPostOrderedAdmin)
 admin.site.register(WorkPost, CVPostOrderedAdmin)
 admin.site.register(ProfessionalEngagementsPost, CVPostOrderedAdmin)
+admin.site.register(WorkProjectPost, CVPostOrderedAdmin)
 admin.site.register(AchievementPost, CVPostOrderedAdmin)
 admin.site.register(QualificationPost, CVPostOrderedAdmin)
 admin.site.register(SkillPost, SkillPostOrderedAdmin)

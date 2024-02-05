@@ -28,6 +28,12 @@ class ProfessionalEngagementsPostForm(CVPostForm):
     class Meta(CVPostForm.Meta):
         model = ProfessionalEngagementsPost
 
+class WorkProjectPostForm(CVPostForm):
+    class Meta(CVPostForm.Meta):
+        model = WorkProjectPost
+        fields = CVPostForm.Meta.fields + ('sub_title',)
+    field_order = ('title', 'sub_title', 'text')
+
 class WorkPostForm(CVPostForm):
     class Meta(CVPostForm.Meta):
         model = WorkPost

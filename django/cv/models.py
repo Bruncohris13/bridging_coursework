@@ -39,6 +39,9 @@ class EducationPost(CVPost):
 class ProfessionalEngagementsPost(CVPost):
     pass
 
+class WorkProjectPost(CVPost):
+    sub_title = models.CharField(max_length=100)
+
 class WorkPost(CVPost):
     sub_title = models.CharField(max_length=100)
 
