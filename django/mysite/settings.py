@@ -131,7 +131,7 @@ STATIC_ROOT = './static_root/'
 
 # Media files (Images)
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Default Primary Key
