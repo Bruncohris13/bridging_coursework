@@ -14,6 +14,9 @@ class InterestPostOrderedAdmin(OrderedModelAdmin):
 class ProjectPostOrderedAdmin(OrderedModelAdmin):
     list_display = ('title', 'move_up_down_links')
 
+class AddActivitiesOrderedAdmin(OrderedModelAdmin):
+    list_display = ('text', 'move_up_down_links')
+
 # Register your models here.
 admin.site.register(CvPdf)
 admin.site.register(Bio)
@@ -23,7 +26,7 @@ admin.site.register(ProfessionalEngagementsPost, CVPostOrderedAdmin)
 admin.site.register(WorkProjectPost, CVPostOrderedAdmin)
 admin.site.register(AchievementPost, CVPostOrderedAdmin)
 admin.site.register(QualificationPost, CVPostOrderedAdmin)
-admin.site.register(AddActivitiesPost, CVPostOrderedAdmin)
+admin.site.register(AddActivitiesPost, AddActivitiesOrderedAdmin)
 admin.site.register(SkillPost, SkillPostOrderedAdmin)
 admin.site.register(InterestPost, InterestPostOrderedAdmin)
 admin.site.register(ProjectPost, ProjectPostOrderedAdmin)
